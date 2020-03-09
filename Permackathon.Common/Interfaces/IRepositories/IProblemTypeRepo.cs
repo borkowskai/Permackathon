@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace Permackathon.Common.Interfaces.IRepositories
 {
-    public interface IProblemTypeRepo
-    {
+    public interface IProblemTypeRepo : IRepository
+    { 
+    
+
+
     }
 }
