@@ -1,10 +1,10 @@
 ﻿using Permackathon.Common.FinancialManager.TransferObjects;
-using Permackathon.Common.TransferObjects;
+using Permackathon.Common.IssuesManager.TransferObjects;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Permackathon.Common.Interfaces.UseCases
+namespace Permackathon.Common.IssuesManager.Interfaces.UseCases
 {
 	public interface IUser
 	{
@@ -14,9 +14,5 @@ namespace Permackathon.Common.Interfaces.UseCases
 		bool MarkAsCompleted(int id);
 		bool MarkAsArchived(int id);
 		List<IssueTO> GetIssues();
-
-		//FinancialManagement
-		List<PredictionTO> GetAllPredictions();
-		List<EffectiveTO> GetAllEffective();
 	}
 }

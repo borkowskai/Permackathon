@@ -1,5 +1,4 @@
 ﻿using Permackathon.Common.FinancialManager.TransferObjects;
-using Permackathon.Common.Interfaces.UseCases;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -1,4 +1,4 @@
-﻿namespace Permackathon.Common.Interfaces.IRepositories
+﻿namespace Permackathon.Common.IssuesManager.Interfaces.IRepositories
 {
     public interface IEntity<TKey> /*where TKey : struct*//*????core ne reconnait pas struct*/
     {

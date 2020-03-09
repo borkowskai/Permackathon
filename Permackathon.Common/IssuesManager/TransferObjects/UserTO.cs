@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Permackathon.Common.TransferObjects
+namespace Permackathon.Common.IssuesManager.TransferObjects
 {
     public class UserTO
     {

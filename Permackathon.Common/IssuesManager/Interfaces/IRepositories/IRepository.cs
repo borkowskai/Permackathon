@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Permackathon.Common.Interfaces.IRepositories
+namespace Permackathon.Common.IssuesManager.Interfaces.IRepositories
 {
     public interface IRepository<T, TKey>
        //where TKey : struct
