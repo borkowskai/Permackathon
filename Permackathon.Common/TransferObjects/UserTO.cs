@@ -4,7 +4,9 @@ using System.Text;
 
 namespace Permackathon.Common.TransferObjects
 {
-    public class ProblemTypeTO
+    public class UserTO
     {
+        public int UserId { get; set; }
+        public string Name { get; set; }
     }
 }
