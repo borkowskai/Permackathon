@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Permackathon
+namespace Permackaathon.Customer.BLL
 {
     public class Class1
     {
