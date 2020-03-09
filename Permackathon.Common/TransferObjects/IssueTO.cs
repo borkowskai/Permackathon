@@ -15,5 +15,5 @@ namespace Permackathon.Common.TransferObjects
         public bool IsCompleted { get; set; }
         public bool IsSoftDeleted { get; set; }
         public LocationTO Location { get; set; }
-        public SectorTO Sector { get; set; }
+        public SectorTO Sector { get; set; } µ}
         
