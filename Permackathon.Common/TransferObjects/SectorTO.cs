@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Permackathon.Common.TransferObjects
 {
-    public class LocationTO
+    public class SectorTO
     {
-        public int LocationId { get; set; }
+        public int SectorId { get; set; }
         public string Name { get; set; }
     }
 }
