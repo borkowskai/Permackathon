@@ -29,9 +29,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business Logic Layer", "Bus
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Access Layer", "Data Access Layer", "{F89341EB-6608-4B25-846F-2F9BA3633968}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Permackathon.Customer.BLL", "Permackathon.Customer.BLL\Permackathon.Customer.BLL.csproj", "{EC9133C8-A3DA-4761-9670-E2E4A6B393D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Permackathon.Customer.BLL", "Permackathon.Customer.BLL\Permackathon.Customer.BLL.csproj", "{EC9133C8-A3DA-4761-9670-E2E4A6B393D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Permackathon.Customer.DAL", "Permackathon.Customer.DAL\Permackathon.Customer.DAL.csproj", "{E43F61AA-2D94-417E-8E79-A4A98577A15C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Permackathon.Customer.DAL", "Permackathon.Customer.DAL\Permackathon.Customer.DAL.csproj", "{E43F61AA-2D94-417E-8E79-A4A98577A15C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Permackathon.FinancialManager", "Permackathon.FinancialManager", "{13684554-777E-4871-B072-BE51F6391CA3}"
 EndProject
@@ -39,9 +39,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business Logic Layer", "Bus
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Access Layer", "Data Access Layer", "{15BED250-B477-422B-9340-D970DA257BF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Permackathon.Financial.BLL", "Permackathon.Financial.BLL\Permackathon.Financial.BLL.csproj", "{CCAB7172-C26D-4ED2-A842-A2E356857CD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Permackathon.Financial.BLL", "Permackathon.Financial.BLL\Permackathon.Financial.BLL.csproj", "{CCAB7172-C26D-4ED2-A842-A2E356857CD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Permackathon.Financial.DAL", "Permackathon.Financial.DAL\Permackathon.Financial.DAL.csproj", "{A088CEFD-AC95-4824-9FC9-DAA24AE194F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Permackathon.Financial.DAL", "Permackathon.Financial.DAL\Permackathon.Financial.DAL.csproj", "{A088CEFD-AC95-4824-9FC9-DAA24AE194F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Permackathon.DALL", "Permackathon.DALL\Permackathon.DALL.csproj", "{D6B31686-2800-4E72-81AA-1849D08FE653}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolBox", "ToolBox\ToolBox.csproj", "{6CB910DC-1F61-4E70-8BCC-2E95C29E32BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +85,14 @@ Global
 		{A088CEFD-AC95-4824-9FC9-DAA24AE194F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A088CEFD-AC95-4824-9FC9-DAA24AE194F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A088CEFD-AC95-4824-9FC9-DAA24AE194F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6B31686-2800-4E72-81AA-1849D08FE653}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6B31686-2800-4E72-81AA-1849D08FE653}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6B31686-2800-4E72-81AA-1849D08FE653}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6B31686-2800-4E72-81AA-1849D08FE653}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CB910DC-1F61-4E70-8BCC-2E95C29E32BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CB910DC-1F61-4E70-8BCC-2E95C29E32BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CB910DC-1F61-4E70-8BCC-2E95C29E32BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CB910DC-1F61-4E70-8BCC-2E95C29E32BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
