@@ -14,7 +14,6 @@ namespace Permackathon.Common.Interfaces.IRepositories
         bool Update(T toUpdate);
         bool Delete(TKey id);
         bool SoftDelete(TKey id);
-
     }
 
 }
