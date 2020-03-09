@@ -3,23 +3,23 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Permackathon.DALL.Models
+namespace Permackathon.Issues.DAL.Models
 {
-    public class User :IEntity<int>
+    public class Sector :IEntity<int>
     {
-        private int _idUser;
+        private int _idSector;
         private string _name;
 
-        public int IdUser
+        public int IdSector
         {
             get
             {
-                return _idUser;
+                return _idSector;
             }
 
             set
             {
-                _idUser = value;
+                _idSector = value;
             }
         }
 
@@ -40,7 +40,7 @@ namespace Permackathon.DALL.Models
         {
             get
             {
-                return _idUser;
+                return _idSector;
             }
         }
     }
