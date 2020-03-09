@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Permackathon.DALL.Models
+namespace Permackathon.Issues.DAL.Models
 {
     public class Issue :IEntity<int>
     {
