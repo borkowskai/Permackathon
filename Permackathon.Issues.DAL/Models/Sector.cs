@@ -1,4 +1,4 @@
-﻿using Permackathon.Common.Interfaces.IRepositories;
+﻿using Permackathon.Common.IssuesManager.Interfaces.IRepositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
