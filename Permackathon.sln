@@ -9,13 +9,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Access Layer", "Data A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Permackathon.IssuesManager", "Permackathon.IssuesManager", "{3045875D-643D-42EF-A497-50407D2A5B3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Permackathon.BLL", "Permackathon.BLL\Permackathon.BLL.csproj", "{EAF697A3-F814-4AAB-890F-7A4A1A143F96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Permackathon.BLL", "Permackathon.BLL\Permackathon.BLL.csproj", "{EAF697A3-F814-4AAB-890F-7A4A1A143F96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Permackathon.DAL", "Hackathon.DAL\Permackathon.DAL.csproj", "{29EA3AA1-758B-4B4E-B1F0-299289CA9E05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Permackathon.DAL", "Hackathon.DAL\Permackathon.DAL.csproj", "{29EA3AA1-758B-4B4E-B1F0-299289CA9E05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Permackathon.Common", "Permackathon.Common\Permackathon.Common.csproj", "{B055B4C4-F2F4-4678-84FC-D8FD3EC40F46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Permackathon.Common", "Permackathon.Common\Permackathon.Common.csproj", "{B055B4C4-F2F4-4678-84FC-D8FD3EC40F46}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Permackathon.Common", "Permackathon.Common", "{78084D4E-8F73-491F-BA39-E3C85C140C6C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Permackathon.RestAPI", "Permackathon.RestAPI", "{5EE26ADC-1F76-410A-8268-A0F6B14ECCC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Permackathon.API", "Permackathon.API\Permackathon.API.csproj", "{63EA82B5-069C-4890-9479-1FDC1A5E9E1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +39,10 @@ Global
 		{B055B4C4-F2F4-4678-84FC-D8FD3EC40F46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B055B4C4-F2F4-4678-84FC-D8FD3EC40F46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B055B4C4-F2F4-4678-84FC-D8FD3EC40F46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63EA82B5-069C-4890-9479-1FDC1A5E9E1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63EA82B5-069C-4890-9479-1FDC1A5E9E1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63EA82B5-069C-4890-9479-1FDC1A5E9E1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63EA82B5-069C-4890-9479-1FDC1A5E9E1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,6 +53,7 @@ Global
 		{EAF697A3-F814-4AAB-890F-7A4A1A143F96} = {6C218263-6B3D-477C-B9FB-D492492AA202}
 		{29EA3AA1-758B-4B4E-B1F0-299289CA9E05} = {46AA66A0-E2C9-4F5F-A96A-AF757BA97B5B}
 		{B055B4C4-F2F4-4678-84FC-D8FD3EC40F46} = {78084D4E-8F73-491F-BA39-E3C85C140C6C}
+		{63EA82B5-069C-4890-9479-1FDC1A5E9E1A} = {5EE26ADC-1F76-410A-8268-A0F6B14ECCC5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {39208B93-6C7E-4093-8C8E-2C75627AB957}
