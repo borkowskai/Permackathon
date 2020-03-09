@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Permackathon.Common\Permackathon.Common.csproj" />
+    <ProjectReference Include="..\ToolBox\ToolBox.csproj" />
+  </ItemGroup>
+
+</Project>
