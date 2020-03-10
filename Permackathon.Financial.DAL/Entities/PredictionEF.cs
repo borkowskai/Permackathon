@@ -10,9 +10,9 @@ namespace Permackathon.Financial.DAL.Entities
         public int Id { get; set; }
         public Months Month { get; set; }
         public int Year { get; set; }
-        public long Eat { get; set; }
-        public long Grow { get; set; }
-        public long Learn { get; set; }
-        public long CashFlow { get; set; }
+        public double Eat { get; set; }
+        public double Grow { get; set; }
+        public double Learn { get; set; }
+        public double CashFlow { get; set; }
     }
 }
