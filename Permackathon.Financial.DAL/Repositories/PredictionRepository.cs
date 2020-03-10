@@ -26,7 +26,9 @@ namespace Permackathon.Financial.DAL.Repositories
             }
 
             var prediction = Entity.ToEF();
-            return financialContext.Predictions.Add(prediction).Entity.ToTransferObject();
+            var result = financialContext.Predictions.Add(prediction);
+            financialContext.SaveChanges();
+            return result.Entity.ToTransferObject();
         }
 
         public IEnumerable<PredictionTO> GetAll()

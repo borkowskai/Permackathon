@@ -25,7 +25,9 @@ namespace Permackathon.Issues.DAL.Repositories
             }
 
             var issue = Entity.ToEF();
-            return issuesContext.Issues.Add(issue).Entity.ToTransferObject();
+            var result = issuesContext.Issues.Add(issue);
+            issuesContext.SaveChanges();
+            return result.Entity.ToTransferObject();
         }
 
         public IEnumerable<IssueTO> GetAll()

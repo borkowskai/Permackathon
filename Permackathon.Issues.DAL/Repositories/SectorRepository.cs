@@ -26,7 +26,9 @@ namespace Permackathon.Issues.DAL.Repositories
             }
 
             var sector = Entity.ToEF();
-            return issuesContext.Sectors.Add(sector).Entity.ToTransferObject();
+            var result = issuesContext.Sectors.Add(sector);
+            issuesContext.SaveChanges();
+            return result.Entity.ToTransferObject();
         }
 
         public IEnumerable<SectorTO> GetAll()

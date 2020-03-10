@@ -25,7 +25,9 @@ namespace Permackathon.Financial.DAL.Repositories
             }
 
             var effective = Entity.ToEF();
-            return financialContext.Effectives.Add(effective).Entity.ToTransferObject();
+            var result = financialContext.Effectives.Add(effective);
+            financialContext.SaveChanges();
+            return result.Entity.ToTransferObject();
         }
 
         public IEnumerable<EffectiveTO> GetAll()
