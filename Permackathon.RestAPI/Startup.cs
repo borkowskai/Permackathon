@@ -18,6 +18,8 @@ using Permackathon.Common.IssuesManager.Interfaces.IRepositories;
 using Permackathon.Common.IssuesManager.Interfaces.UseCases;
 using Permackathon.Customer.BLL.UseCases;
 using Permackathon.Customer.DAL;
+using Permackathon.Financial.BLL.UseCases;
+
 using Permackathon.Financial.DAL;
 using Permackathon.Issues.DAL;
 
@@ -35,23 +37,24 @@ namespace Permackathon.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //FinancialManagement -> Injections de dÈpendance
-            services.AddTransient<FinancialContext>();
-            services.AddTransient<IFMUnitOfWork>();
-            services.AddTransient<IFMUser>();
-            services.AddTransient<IAccountant>();
-            services.AddTransient<IMasterAccountant>();
+            //FinancialManagement -> Injections de d√©pendance
+            //services.AddTransient<FinancialContext>(options => options.UseSqlServer(/*@"Server=(local);Database=Assessments;Trusted_Connection=True;"*/));
+            services.AddScoped<IFMUnitOfWork, FinancialUnitOfWork>();
+            services.AddTransient<IFMUser, FMUser>();
+            services.AddTransient<IAccountant, Accountant>();
+            services.AddTransient<IMasterAccountant, MasterAccountant>();
+            
 
-            //IssuesManagement -> Injections de dÈpendance
-            services.AddTransient<IssuesContext>();
-            services.AddTransient<IIssuesUnitOfWork>();
-            services.AddTransient<IUser>();
+            //IssuesManagement -> Injections de d√©pendance
+            //services.AddTransient<IssuesContext>();
+            //services.AddTransient<IIssuesUnitOfWork>();
+            //services.AddTransient<IUser>();
 
             //CustomerManagement
             services.AddDbContext<CustomersManagerContext>(options => options.UseSqlServer(@"Data Source=HACKATHON-SRV1\HACKATHON;Initial Catalog=Wapiti;User ID=WapitiUser;Password=WapitiUser;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
             services.AddScoped<ICMCommercial, CMCommercial>();
 
-            //CustomerManagement -> Injections de dÈpendance
+            //CustomerManagement -> Injections de d√©pendance
 
 
             services.AddControllers();
