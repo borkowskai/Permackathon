@@ -18,6 +18,5 @@ namespace Permackathon.Common.IssuesManager.TransferObjects
         public LocationTO Location { get; set; }
         public SectorTO Sector { get; set; }
         public string Description { get; set; }
-
     }
 }
