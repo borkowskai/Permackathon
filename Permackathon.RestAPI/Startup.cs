@@ -38,11 +38,11 @@ namespace Permackathon.API
         public void ConfigureServices(IServiceCollection services)
         {
             //FinancialManagement -> Injections de dépendance
-            //services.AddTransient<FinancialContext>(options => options.UseSqlServer(/*@"Server=(local);Database=Assessments;Trusted_Connection=True;"*/));
+            services.AddDbContext<FinancialContext>(option => option.UseSqlServer(@"Data Source=HACKATHON-SRV1\HACKATHON;Initial Catalog=Wapiti;User ID=WapitiUser;Password=WapitiUser;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
             services.AddScoped<IFMUnitOfWork, FinancialUnitOfWork>();
-            services.AddTransient<IFMUser, FMUser>();
-            services.AddTransient<IAccountant, Accountant>();
-            services.AddTransient<IMasterAccountant, MasterAccountant>();
+            services.AddScoped<IFMUser, FMUser>();
+            services.AddScoped<IAccountant, Accountant>();
+            services.AddScoped<IMasterAccountant, MasterAccountant>();
             
 
             //IssuesManagement -> Injections de dépendance
@@ -51,8 +51,8 @@ namespace Permackathon.API
             //services.AddTransient<IUser>();
 
             //CustomerManagement
-            services.AddDbContext<CustomersManagerContext>(options => options.UseSqlServer(@"Data Source=HACKATHON-SRV1\HACKATHON;Initial Catalog=Wapiti;User ID=WapitiUser;Password=WapitiUser;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
-            services.AddScoped<ICMCommercial, CMCommercial>();
+            //services.AddDbContext<CustomersManagerContext>(options => options.UseSqlServer(@"Data Source=HACKATHON-SRV1\HACKATHON;Initial Catalog=Wapiti;User ID=WapitiUser;Password=WapitiUser;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
+            //services.AddScoped<ICMCommercial, CMCommercial>();
 
             //CustomerManagement -> Injections de dépendance
 
