@@ -26,14 +26,14 @@ namespace Permackathon.Financial.DAL.Repositories
             }
 
             var prediction = Entity.ToEF();
-            return financialContext.Predictions.Add(prediction).Entity.ToTransfertObject();
+            return financialContext.Predictions.Add(prediction).Entity.ToTransferObject();
         }
 
         public IEnumerable<PredictionTO> GetAll()
         {
             return financialContext.Predictions
                 .AsNoTracking()
-                .Select(r => r.ToTransfertObject()).ToList();
+                .Select(r => r.ToTransferObject()).ToList();
         }
 
         public PredictionTO GetById(int Id)
@@ -47,7 +47,7 @@ namespace Permackathon.Financial.DAL.Repositories
                 throw new KeyNotFoundException($"No prediction with ID={Id} was found.");
             }
 
-            return prediction.ToTransfertObject();
+            return prediction.ToTransferObject();
         }
 
         public bool Remove(PredictionTO entity)
@@ -83,7 +83,7 @@ namespace Permackathon.Financial.DAL.Repositories
                 .Predictions
                 .Update(Entity.ToEF())
                 .Entity
-                .ToTransfertObject();
+                .ToTransferObject();
         }
     }
 }

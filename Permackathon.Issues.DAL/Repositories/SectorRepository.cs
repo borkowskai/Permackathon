@@ -26,14 +26,14 @@ namespace Permackathon.Issues.DAL.Repositories
             }
 
             var sector = Entity.ToEF();
-            return issuesContext.Sectors.Add(sector).Entity.ToTransfertObject();
+            return issuesContext.Sectors.Add(sector).Entity.ToTransferObject();
         }
 
         public IEnumerable<SectorTO> GetAll()
         {
             return issuesContext.Sectors
             .AsNoTracking()
-            .Select(r => r.ToTransfertObject()).ToList();
+            .Select(r => r.ToTransferObject()).ToList();
         }
 
         public SectorTO GetById(int Id)
@@ -47,7 +47,7 @@ namespace Permackathon.Issues.DAL.Repositories
                 throw new KeyNotFoundException($"No effective with ID={Id} was found.");
             }
 
-            return sector.ToTransfertObject();
+            return sector.ToTransferObject();
         }
 
         public bool Remove(SectorTO entity)
@@ -83,7 +83,7 @@ namespace Permackathon.Issues.DAL.Repositories
                 .Sectors
                 .Update(Entity.ToEF())
                 .Entity
-                .ToTransfertObject();
+                .ToTransferObject();
         }
     }
 }

@@ -25,14 +25,14 @@ namespace Permackathon.Issues.DAL.Repositories
             }
 
             var issue = Entity.ToEF();
-            return issuesContext.Issues.Add(issue).Entity.ToTransfertObject();
+            return issuesContext.Issues.Add(issue).Entity.ToTransferObject();
         }
 
         public IEnumerable<IssueTO> GetAll()
         {
             return issuesContext.Issues
             .AsNoTracking()
-            .Select(r => r.ToTransfertObject()).ToList();
+            .Select(r => r.ToTransferObject()).ToList();
         }
 
         public IssueTO GetById(int Id)
@@ -46,7 +46,7 @@ namespace Permackathon.Issues.DAL.Repositories
                 throw new KeyNotFoundException($"No effective with ID={Id} was found.");
             }
 
-            return issue.ToTransfertObject();
+            return issue.ToTransferObject();
         }
 
         public bool Remove(IssueTO entity)
@@ -82,7 +82,7 @@ namespace Permackathon.Issues.DAL.Repositories
                 .Issues
                 .Update(Entity.ToEF())
                 .Entity
-                .ToTransfertObject();
+                .ToTransferObject();
         }
     }
 }

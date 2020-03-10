@@ -25,14 +25,14 @@ namespace Permackathon.Financial.DAL.Repositories
             }
 
             var effective = Entity.ToEF();
-            return financialContext.Effectives.Add(effective).Entity.ToTransfertObject();
+            return financialContext.Effectives.Add(effective).Entity.ToTransferObject();
         }
 
         public IEnumerable<EffectiveTO> GetAll()
         {
             return financialContext.Effectives
                 .AsNoTracking()
-                .Select(r => r.ToTransfertObject()).ToList();
+                .Select(r => r.ToTransferObject()).ToList();
         }
 
         public EffectiveTO GetById(int Id)
@@ -46,7 +46,7 @@ namespace Permackathon.Financial.DAL.Repositories
                 throw new KeyNotFoundException($"No effective with ID={Id} was found.");
             }
 
-            return effective.ToTransfertObject();
+            return effective.ToTransferObject();
         }
 
         public bool Remove(EffectiveTO entity)
@@ -82,7 +82,7 @@ namespace Permackathon.Financial.DAL.Repositories
                 .Effectives
                 .Update(Entity.ToEF())
                 .Entity
-                .ToTransfertObject();
+                .ToTransferObject();
         }
     }
 }
