@@ -23,62 +23,41 @@ namespace Permackathon.Issues.BLL.UseCases
         public IssueTO AddIssue(IssueTO Issue)
             => unitOfWork.IssuesRepository.Add(Issue);
 
-        //public bool BecomeResolver(int id)
-        //{
-        //    unitOfWork.IssuesRepository.GetById(id);
-
- 
-
-
-        //}
-
-        
-
         public bool BecomeResolver(int IssueId, int UserId)
         {
-            var toUpdate = unitOfWork.IssuesRepository.GetById(IssueId);
+            IssueTO issue = unitOfWork.IssuesRepository.GetById(IssueId);
             UserTO user = unitOfWork.UserRepository.GetById(UserId);
-            //TODO
-            //toUpdate.Resolver = user; 
-            //var update = unitOfWork.IssuesRepository.Update(toUpdate);
+           //seulent un utilisateur peut etre attache, nous n'avons pas de table intermediaire
+            issue.Resolver = user;
+            unitOfWork.IssuesRepository.Update(issue);
             return true;
+            //TODO exception if needed
         }
 
         public IEnumerable<IssueTO> GetIssues()
             => unitOfWork.IssuesRepository.GetAll();
 
-        public bool MarkAsArchived(int id)
-        {
-            throw new NotImplementedException();
-        }
 
         public bool MarkAsArchived(int IssueId, int UserId)
         {
-            throw new NotImplementedException();
+            //je comprends que cela correspond a is SoftDeleted
+            IssueTO issue = unitOfWork.IssuesRepository.GetById(IssueId);
+
+            //tu es sure que User Id est necessaire?          
+            //UserTO user = unitOfWork.UserRepository.GetById(UserId);
+            issue.IsSoftDeleted = true;
+            unitOfWork.IssuesRepository.Update(issue);
+            //TODO verifier si necessaire retourner qqch => void
+            return true;
         }
 
-        //public bool MarkAsCompleted(int id)
-        //{
-            //var getIssue = unitOfWork.IssuesRepository.GetById(id);
-            //var UpdateIssue = unitOfWork.IssuesRepository.Update(id);
-            //if (getIssue.IsCompleted)
-            //{
-            //    return true;
-
-            //}
-            //return false;
-
-        //}
         public bool MarkAsCompleted(int IssueId, int UserId)
         {
-            var getIssue = unitOfWork.IssuesRepository.GetById(IssueId);
+            IssueTO issue = unitOfWork.IssuesRepository.GetById(IssueId);
             UserTO user = unitOfWork.UserRepository.GetById(UserId);
-            if (getIssue.IsCompleted)
-            {
-                return true;
-
-            }
-            return false;
+            issue.IsCompleted = true;
+            unitOfWork.IssuesRepository.Update(issue);
+            return true;
         }
     }
 }
