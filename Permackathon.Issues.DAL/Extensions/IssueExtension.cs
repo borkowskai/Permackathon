@@ -15,7 +15,18 @@ namespace Permackathon.Issues.DAL.Extensions
 
                 return new IssueTO
                 {
-                   //Map
+                   IssueId = issue.IssueId,
+                   Creator = issue.Creator,
+                   Resolver = issue.Resolver,
+                   Priority =issue.Priority,
+                   Name = issue.Name,
+                   DeadLine = issue.DeadLine,
+                   IsCompleted = issue.IsCompleted,
+                   IsSoftDeleted =issue.IsSoftDeleted,
+                   Location = issue.Location,
+                   Sector =issue.Sector,
+                   Description =issue.Description
+
                 };
             }
 
@@ -26,7 +37,17 @@ namespace Permackathon.Issues.DAL.Extensions
 
                 return new IssueEF
                 {
-                    //Map
+                    IssueId = issue.IssueId,
+                    Creator = issue.Creator,
+                    Resolver = issue.Resolver,
+                    Priority = issue.Priority,
+                    Name = issue.Name,
+                    DeadLine = issue.DeadLine,
+                    IsCompleted = issue.IsCompleted,
+                    IsSoftDeleted = issue.IsSoftDeleted,
+                    Location = issue.Location,
+                    Sector = issue.Sector,
+                    Description = issue.Description
                 };
             }
         
