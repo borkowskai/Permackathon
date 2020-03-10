@@ -17,7 +17,7 @@ namespace Permackathon.Issues.DAL.Repositories
 
         public UserRepository(IssuesContext issuesContext)
         {
-            this.issuesContext = issuesContext ?? throw new ArgumentNullException($"{nameof(issuesContext)} in SectorRepository");
+            this.issuesContext = issuesContext ?? throw new ArgumentNullException($"{nameof(issuesContext)} in UserRepository");
         }
 
 
