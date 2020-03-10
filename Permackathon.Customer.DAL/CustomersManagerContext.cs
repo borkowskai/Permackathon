@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Permackathon.Customer.DAL.Entities;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Permackathon.Customer.DAL
 {
@@ -28,7 +27,7 @@ namespace Permackathon.Customer.DAL
 				throw new ArgumentNullException(nameof(optionsBuilder));
 
 			if (!optionsBuilder.IsConfigured)
-				optionsBuilder.UseSqlServer(@"Server=192.168.0.100\HACKATHON;Database=Wapiti;User Id=WapitiUser;Password=WapitiUser");
+				optionsBuilder.UseSqlServer(@"Data Source=HACKATHON-SRV1\HACKATHON;Initial Catalog=Wapiti;User ID=WapitiUser;Password=WapitiUser;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 		}
 
 		// Entities
