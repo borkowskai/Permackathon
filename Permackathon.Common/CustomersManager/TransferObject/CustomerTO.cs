@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Permackathon.Common.CustomersManager.TransferObject
 {
-	public class Customer
+	public class CustomerTO
 	{
 		public int IdCustomer { get; set; }
 		public string Name { get; set; }
