@@ -8,7 +8,7 @@ namespace Permackathon.Financial.DAL.Extensions
 {
     public static class EffectiveExtensions
     {
-        public static EffectiveTO ToTransfertObject(this EffectiveEF effective)
+        public static EffectiveTO ToTransferObject(this EffectiveEF effective)
         {
             if (effective is null)
                 throw new ArgumentNullException(nameof(effective));

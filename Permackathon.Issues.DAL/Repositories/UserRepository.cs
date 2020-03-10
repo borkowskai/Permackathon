@@ -27,16 +27,17 @@ namespace Permackathon.Issues.DAL.Repositories
             {
                 throw new ArgumentNullException(nameof(Entity));
             }
-
             var user = Entity.ToEF();
-            return issuesContext.Users.Add(user).Entity.ToTransfertObject();
+            var result = issuesContext.Users.Add(user);
+            issuesContext.SaveChanges();
+            return result.Entity.ToTransferObject();
         }
 
         public IEnumerable<UserTO> GetAll()
         {
             return issuesContext.Users
             .AsNoTracking()
-            .Select(r => r.ToTransfertObject()).ToList();
+            .Select(r => r.ToTransferObject()).ToList();
         }
 
         public UserTO GetById(int Id)
@@ -49,8 +50,7 @@ namespace Permackathon.Issues.DAL.Repositories
             {
                 throw new KeyNotFoundException($"No effective with ID={Id} was found.");
             }
-
-            return user.ToTransfertObject();
+            return user.ToTransferObject();
         }
 
         public bool Remove(UserTO entity)
@@ -59,7 +59,6 @@ namespace Permackathon.Issues.DAL.Repositories
             {
                 throw new ArgumentNullException(nameof(entity));
             }
-
             return Remove(entity.UserId);
         }
 
@@ -81,12 +80,11 @@ namespace Permackathon.Issues.DAL.Repositories
             {
                 throw new ArgumentNullException(nameof(Entity));
             }
-
             return issuesContext
                 .Users
                 .Update(Entity.ToEF())
                 .Entity
-                .ToTransfertObject();
+                .ToTransferObject();
         }
     }
 }
