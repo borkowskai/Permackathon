@@ -17,7 +17,7 @@ namespace Permackathon.Customer.DAL.Entities
 		public string Delivery_Street { get; set; }
 		public int Delivery_StreetNumber { get; set; }
 		public int Delivery_ZipCode { get; set; }
-		public int Delivery_Location { get; set; }
+		public string Delivery_Location { get; set; }
 		public string Delivery_Information { get; set; }
 		public string Contact_FirstName { get; set; }
 		public string Contact_LastName { get; set; }

@@ -17,7 +17,11 @@ namespace Permackathon.Financial.BLL.UseCases
         }
 
         public EffectiveTO AddEffectiveData(EffectiveTO effectiveData)
-            => unitOfWork.EffectiveRepository.Add(effectiveData);
+        { 
+            var result = unitOfWork.EffectiveRepository.Add(effectiveData);
+            unitOfWork.Save();
+            return result;
+        }
 
         public IEnumerable<EffectiveTO> GetAllEffectives()
              => unitOfWork.EffectiveRepository.GetAll();

@@ -9,85 +9,85 @@ using System.Text;
 
 namespace Permackathon.Issues.DAL.Repositories
 {
-    public class LocationRepository : ILocationRepository
-    {
-        private readonly IssuesContext issuesContext;
+	public class LocationRepository : ILocationRepository
+	{
+		private readonly IssuesContext issuesContext;
 
-        public LocationRepository(IssuesContext issuesContext)
-        {
-            this.issuesContext = issuesContext ?? throw new ArgumentNullException($"{nameof(issuesContext)} in IssueRepository");
-        }
+		public LocationRepository(IssuesContext issuesContext)
+		{
+			this.issuesContext = issuesContext ?? throw new ArgumentNullException($"{nameof(issuesContext)} in IssueRepository");
+		}
 
-        public LocationTO Add(LocationTO Entity)
-        {
-            if (Entity is null)
-            {
-                throw new ArgumentNullException(nameof(Entity));
-            }
+		public LocationTO Add(LocationTO Entity)
+		{
+			if (Entity is null)
+			{
+				throw new ArgumentNullException(nameof(Entity));
+			}
 
-            var location = Entity.ToEF();
-            return issuesContext.Locations.Add(location).Entity.ToTransfertObject();
-        }
+			var location = Entity.ToEF();
+			var result = issuesContext.Locations.Add(location);
+			issuesContext.SaveChanges();
+			return result.Entity.ToTransferObject();
+		}
 
-        public IEnumerable<LocationTO> GetAll()
-        {
-            return issuesContext.Locations
-            .AsNoTracking()
-            .Select(r => r.ToTransfertObject()).ToList();
-        }
+		public IEnumerable<LocationTO> GetAll()
+		{
+			return issuesContext.Locations
+			.AsNoTracking()
+			.Select(r => r.ToTransferObject()).ToList();
+		}
 
-        public LocationTO GetById(int Id)
-        {
-            var location  = issuesContext.Locations
-            .AsNoTracking()
-            .FirstOrDefault(c => c.LocationId == Id);
+		public LocationTO GetById(int Id)
+		{
+			var location = issuesContext.Locations
+			.AsNoTracking()
+			.FirstOrDefault(c => c.LocationId == Id);
 
-            if (location is null)
-            {
-                throw new KeyNotFoundException($"No effective with ID={Id} was found.");
-            }
+			if (location is null)
+			{
+				throw new KeyNotFoundException($"No effective with ID={Id} was found.");
+			}
 
-            return location.ToTransfertObject();
-        }
+			return location.ToTransferObject();
+		}
 
-        public bool Remove(LocationTO entity)
-        {
-            if (entity is null)
-            {
-                throw new ArgumentNullException(nameof(entity));
-            }
+		public bool Remove(LocationTO entity)
+		{
+			if (entity is null)
+			{
+				throw new ArgumentNullException(nameof(entity));
+			}
 
-            return Remove(entity.LocationId);
-        }
+			return Remove(entity.LocationId);
+		}
 
-        public bool Remove(int Id)
-        {
-            var location = issuesContext.Locations.FirstOrDefault(c => c.LocationId == Id);
+		public bool Remove(int Id)
+		{
+			var location = issuesContext.Locations.FirstOrDefault(c => c.LocationId == Id);
 
-            if (location == null)
-            {
-                throw new KeyNotFoundException($"CommentRepository. Delete(commentLocationId = {Id}) no record to delete.");
-            }
-            var removedLocation = issuesContext.Locations.Remove(location);
-            return removedLocation.State == EntityState.Deleted;
-        }
+			if (location == null)
+			{
+				throw new KeyNotFoundException($"CommentRepository. Delete(commentLocationId = {Id}) no record to delete.");
+			}
+			var removedLocation = issuesContext.Locations.Remove(location);
+			return removedLocation.State == EntityState.Deleted;
+		}
 
-        public LocationTO Update(LocationTO Entity)
-        {
-            if (Entity is null)
-            {
-                throw new ArgumentNullException(nameof(Entity));
-            }
+		public LocationTO Update(LocationTO Entity)
+		{
+			if (Entity is null)
+			{
+				throw new ArgumentNullException(nameof(Entity));
+			}
 
-            return issuesContext
-                .Locations
-                .Update(Entity.ToEF())
-                .Entity
-                .ToTransfertObject();
-        }
-    }
+			return issuesContext
+				.Locations
+				.Update(Entity.ToEF())
+				.Entity
+				.ToTransferObject();
+		}
+	}
 
-
-        }
-    }
 }
+
