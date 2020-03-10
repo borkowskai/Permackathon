@@ -1,4 +1,5 @@
-﻿using Permackathon.Common.FinancialManager.Interfaces.IRepositories;
+﻿using Microsoft.EntityFrameworkCore;
+using Permackathon.Common.FinancialManager.Interfaces.IRepositories;
 using Permackathon.Common.FinancialManager.TransferObjects;
 using Permackathon.Financial.DAL.Extensions;
 using System;

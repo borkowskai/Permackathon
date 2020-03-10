@@ -2,14 +2,13 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Permackathon.Customer.DAL
+namespace Permackathon.Customer.DAL.Entities
 {
 	// TODO 01.	Create Entity Data Model, EF Core Code First
 	// TODO 01.A.	Install nuget Microsoft.EntityFrameworkCore
 	// TODO 01.B.	Install nuget Microsoft.EntityFrameworkCore.SqlServer
 	// TODO 01.C.	Install nuget Microsoft.EntityFrameWorkCore.Tools
 	// TODO 01.D.	Create entities, CustomerEF
-    [Table("Customers")]
 	public class CustomerEF
     {
 		[Key]

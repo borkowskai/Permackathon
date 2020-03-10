@@ -1,4 +1,5 @@
 ﻿using Permackathon.Common.CustomersManager.TransferObject;
+using Permackathon.Customer.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;

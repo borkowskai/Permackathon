@@ -27,6 +27,11 @@ namespace Permackathon.Issues.BLL.UseCases
             throw new NotImplementedException();
         }
 
+        public bool BecomeResolver(int IssueId, int UserId)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<IssueTO> GetIssues()
             => unitOfWork.IssuesRepository.GetAll();
 
@@ -35,7 +40,17 @@ namespace Permackathon.Issues.BLL.UseCases
             throw new NotImplementedException();
         }
 
+        public bool MarkAsArchived(int IssueId, int UserId)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool MarkAsCompleted(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool MarkAsCompleted(int IssueId, int UserId)
         {
             throw new NotImplementedException();
         }
