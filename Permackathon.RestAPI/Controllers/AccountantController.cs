@@ -4,6 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Permackathon.Common.FinancialManager.Interfaces.IRepositories;
+using Permackathon.Common.FinancialManager.Interfaces.UseCases;
+using Permackathon.Common.FinancialManager.TransferObjects;
+using Permackathon.Financial.DAL;
 
 namespace Permackathon.API.Controllers
 {
@@ -11,17 +15,42 @@ namespace Permackathon.API.Controllers
     [ApiController]
     public class AccountantController : ControllerBase
     {
-        // GET: api/Accountant
-        [HttpGet]
-        public IEnumerable<string> Get()
+        public AccountantController(FinancialContext ctx, IFMUnitOfWork uow, IAccountant patrick)
         {
-            return new string[] { "value1", "value2" };
+            this._Context = ctx;
+            this._Service = patrick;
+            this._Uow = uow;
         }
+        private readonly FinancialContext _Context;
+        private readonly IFMUnitOfWork _Uow;
+        private readonly IAccountant _Service;
 
         // POST: api/Accountant
         [HttpPost]
         public void Post([FromBody] string value)
         {
+        }
+
+
+
+
+
+
+
+
+        //===================================== Methods from UserController
+        // GET: api/Accountant
+        [HttpGet]
+        public IEnumerable<EffectiveTO> GetEffectives()
+        {
+            return _Service.GetAllEffectives();
+        }
+
+        // GET: api/Accountant
+        [HttpGet]
+        public IEnumerable<PredictionTO> GetPredictions()
+        {
+            return _Service.GetAllPredictions();
         }
     }
 }

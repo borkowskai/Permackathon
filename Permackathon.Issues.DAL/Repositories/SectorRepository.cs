@@ -9,69 +9,70 @@ using System.Text;
 
 namespace Permackathon.Issues.DAL.Repositories
 {
-    public class IssuesRepository : IIssuesRepository
+    public class SectorRepository : ISectorRepository
     {
+
         private readonly IssuesContext issuesContext;
 
-        public IssuesRepository(IssuesContext issuesContext)
+        public SectorRepository(IssuesContext issuesContext)
         {
-            this.issuesContext = issuesContext ?? throw new ArgumentNullException($"{nameof(issuesContext)} in IssueRepository");
+            this.issuesContext = issuesContext ?? throw new ArgumentNullException($"{nameof(issuesContext)} in SectorRepository");
         }
-        public IssueTO Add(IssueTO Entity)
+        public SectorTO Add(SectorTO Entity)
         {
             if (Entity is null)
             {
                 throw new ArgumentNullException(nameof(Entity));
             }
 
-            var issue = Entity.ToEF();
-            return issuesContext.Issues.Add(issue).Entity.ToTransfertObject();
+            var sector = Entity.ToEF();
+            return issuesContext.Sectors.Add(sector).Entity.ToTransfertObject();
         }
 
-        public IEnumerable<IssueTO> GetAll()
+        public IEnumerable<SectorTO> GetAll()
         {
-            return issuesContext.Issues
+            return issuesContext.Sectors
             .AsNoTracking()
             .Select(r => r.ToTransfertObject()).ToList();
         }
 
-        public IssueTO GetById(int Id)
+        public SectorTO GetById(int Id)
         {
-            var issue = issuesContext.Issues
-               .AsNoTracking()
-               .FirstOrDefault(c => c.IssueId == Id);
+            var sector = issuesContext.Sectors
+           .AsNoTracking()
+           .FirstOrDefault(c => c.SectorId == Id);
 
-            if (issue is null)
+            if (sector is null)
             {
                 throw new KeyNotFoundException($"No effective with ID={Id} was found.");
             }
 
-            return issue.ToTransfertObject();
+            return sector.ToTransfertObject();
         }
 
-        public bool Remove(IssueTO entity)
+        public bool Remove(SectorTO entity)
         {
             if (entity is null)
             {
                 throw new ArgumentNullException(nameof(entity));
             }
 
-            return Remove(entity.IssueId);
+            return Remove(entity.SectorId);
         }
 
         public bool Remove(int Id)
         {
-            var issue = issuesContext.Issues.FirstOrDefault(c => c.IssueId == Id);
+            var sector = issuesContext.Sectors.FirstOrDefault(c => c.SectorId == Id);
 
-            if (issue == null)
+            if (sector == null)
             {
                 throw new KeyNotFoundException($"CommentRepository. Delete(commentId = {Id}) no record to delete.");
             }
-            var removedIssue = issuesContext.Issues.Remove(issue);
-            return removedIssue.State == EntityState.Deleted;
+            var removedSector = issuesContext.Sectors.Remove(sector);
+            return removedSector.State == EntityState.Deleted;
         }
 
-        public IssueTO Update(IssueTO Entity)
+        public SectorTO Update(SectorTO Entity)
         {
             if (Entity is null)
             {
@@ -79,7 +80,7 @@ namespace Permackathon.Issues.DAL.Repositories
             }
 
             return issuesContext
-                .Issues
+                .Sectors
                 .Update(Entity.ToEF())
                 .Entity
                 .ToTransfertObject();
