@@ -10,15 +10,11 @@ namespace Permackathon.Customer.DAL
 	public class CustomersManagerContext : DbContext
 	{
 		// Contructor
-		public CustomersManagerContext()
-		{
-
-		}
+		public CustomersManagerContext() 
+		{ }
 
 		public CustomersManagerContext(DbContextOptions<CustomersManagerContext> options) : base(options)
-		{
-
-		}
+		{ }
 
 		// TODO 01.F.	Put the ConnectionString in the OnConfiguring method
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
