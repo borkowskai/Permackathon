@@ -11,7 +11,7 @@ using Permackathon.Financial.DAL;
 
 namespace Permackathon.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class AccountantController : ControllerBase
     {

@@ -38,7 +38,7 @@ namespace Permackathon.API
         public void ConfigureServices(IServiceCollection services)
         {
             //FinancialManagement -> Injections de dépendance
-            services.AddDbContext<FinancialContext>(option => option.UseSqlServer(@"Data Source=HACKATHON-SRV1\HACKATHON;Initial Catalog=Wapiti;User ID=WapitiUser;Password=WapitiUser;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
+            services.AddDbContext<FinancialContext>();
             services.AddScoped<IFMUnitOfWork, FinancialUnitOfWork>();
             services.AddScoped<IFMUser, FMUser>();
             services.AddScoped<IAccountant, Accountant>();
