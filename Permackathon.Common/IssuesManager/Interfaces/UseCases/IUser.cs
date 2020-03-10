@@ -13,6 +13,6 @@ namespace Permackathon.Common.IssuesManager.Interfaces.UseCases
 		bool BecomeResolver(int id);
 		bool MarkAsCompleted(int id);
 		bool MarkAsArchived(int id);
-		List<IssueTO> GetIssues();
+		IEnumerable<IssueTO> GetIssues();
 	}
 }

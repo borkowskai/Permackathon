@@ -12,7 +12,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Permackathon.Common.FinancialManager.Interfaces.IRepositories;
 using Permackathon.Common.FinancialManager.Interfaces.UseCases;
+using Permackathon.Common.IssuesManager.Interfaces.IRepositories;
+using Permackathon.Common.IssuesManager.Interfaces.UseCases;
 using Permackathon.Financial.DAL;
+using Permackathon.Issues.DAL;
 
 namespace Permackathon.API
 {
@@ -28,9 +31,21 @@ namespace Permackathon.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //FinancialManagement -> Injections de dépendance
             services.AddTransient<FinancialContext>();
             services.AddTransient<IFMUnitOfWork>();
             services.AddTransient<IFMUser>();
+            services.AddTransient<IAccountant>();
+            services.AddTransient<IMasterAccountant>();
+
+            //IssuesManagement -> Injections de dépendance
+            services.AddTransient<IssuesContext>();
+            services.AddTransient<IIssuesUnitOfWork>();
+            services.AddTransient<IUser>();
+
+            //CustomerManagement -> Injections de dépendance
+
+
             services.AddControllers();
         }
 

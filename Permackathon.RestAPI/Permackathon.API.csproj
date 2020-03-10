@@ -12,6 +12,7 @@
     <ProjectReference Include="..\Permackathon.Common\Permackathon.Common.csproj" />
     <ProjectReference Include="..\Permackathon.Financial.BLL\Permackathon.Financial.BLL.csproj" />
     <ProjectReference Include="..\Permackathon.Financial.DAL\Permackathon.Financial.DAL.csproj" />
+    <ProjectReference Include="..\Permackathon.Issues.DAL\Permackathon.Issues.DAL.csproj" />
   </ItemGroup>
 
 

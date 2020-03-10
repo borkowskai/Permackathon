@@ -15,9 +15,9 @@ namespace Permackathon.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EffectiveController : ControllerBase
+    public class UserController : ControllerBase
     {
-        public EffectiveController(FinancialContext ctx, IFMUnitOfWork uow, IFMUser patrick)
+        public UserController(FinancialContext ctx, IFMUnitOfWork uow, IFMUser patrick)
         {
             this._Context = ctx;
             this._Service = patrick;
