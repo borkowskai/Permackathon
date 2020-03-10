@@ -9,28 +9,21 @@ namespace Permackathon.Financial.BLL.UseCases
 {
     public class Accountant : IAccountant
     {
-
         private readonly IFMUnitOfWork unitOfWork;
 
-        public Accountant(IFMUnitOfWork iFSUnitOfWork)
+        public Accountant(IFMUnitOfWork iFMUnitOfWork)
         {
-            this.unitOfWork = iFSUnitOfWork ?? throw new System.ArgumentNullException(nameof(iFSUnitOfWork));
+            this.unitOfWork = iFMUnitOfWork ?? throw new System.ArgumentNullException(nameof(iFMUnitOfWork));
         }
 
         public EffectiveTO AddEffectiveData(EffectiveTO effectiveData)
-        {
-            throw new NotImplementedException();
-        }
+            => unitOfWork.EffectiveRepository.Add(effectiveData);
 
-        public List<EffectiveTO> GetAllEffectives()
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerable<EffectiveTO> GetAllEffectives()
+             => unitOfWork.EffectiveRepository.GetAll();
 
-        public List<PredictionTO> GetAllPredictions()
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerable<PredictionTO> GetAllPredictions()
+            => unitOfWork.PredictionRepository.GetAll();
     }
 }
 

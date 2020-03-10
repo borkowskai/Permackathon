@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Permackathon.Common.FinancialManager.Interfaces.IRepositories
+namespace Permackathon.Common.AccessHelpers
 {
     public interface IRepository<TType, TIdType>
         where TType : class
