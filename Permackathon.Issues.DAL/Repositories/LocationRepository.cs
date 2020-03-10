@@ -9,69 +9,70 @@ using System.Text;
 
 namespace Permackathon.Issues.DAL.Repositories
 {
-    public class IssuesRepository : IIssuesRepository
+    public class LocationRepository : ILocationRepository
     {
         private readonly IssuesContext issuesContext;
 
-        public IssuesRepository(IssuesContext issuesContext)
+        public LocationRepository(IssuesContext issuesContext)
         {
             this.issuesContext = issuesContext ?? throw new ArgumentNullException($"{nameof(issuesContext)} in IssueRepository");
         }
-        public IssueTO Add(IssueTO Entity)
+
+        public LocationTO Add(LocationTO Entity)
         {
             if (Entity is null)
             {
                 throw new ArgumentNullException(nameof(Entity));
             }
 
-            var issue = Entity.ToEF();
-            return issuesContext.Issues.Add(issue).Entity.ToTransfertObject();
+            var location = Entity.ToEF();
+            return issuesContext.Locations.Add(location).Entity.ToTransfertObject();
         }
 
-        public IEnumerable<IssueTO> GetAll()
+        public IEnumerable<LocationTO> GetAll()
         {
-            return issuesContext.Issues
+            return issuesContext.Locations
             .AsNoTracking()
             .Select(r => r.ToTransfertObject()).ToList();
         }
 
-        public IssueTO GetById(int Id)
+        public LocationTO GetById(int Id)
         {
-            var issue = issuesContext.Issues
-               .AsNoTracking()
-               .FirstOrDefault(c => c.IssueId == Id);
+            var location  = issuesContext.Locations
+            .AsNoTracking()
+            .FirstOrDefault(c => c.LocationId == Id);
 
-            if (issue is null)
+            if (location is null)
             {
                 throw new KeyNotFoundException($"No effective with ID={Id} was found.");
             }
 
-            return issue.ToTransfertObject();
+            return location.ToTransfertObject();
         }
 
-        public bool Remove(IssueTO entity)
+        public bool Remove(LocationTO entity)
         {
             if (entity is null)
             {
                 throw new ArgumentNullException(nameof(entity));
             }
 
-            return Remove(entity.IssueId);
+            return Remove(entity.LocationId);
         }
 
         public bool Remove(int Id)
         {
-            var issue = issuesContext.Issues.FirstOrDefault(c => c.IssueId == Id);
+            var location = issuesContext.Locations.FirstOrDefault(c => c.LocationId == Id);
 
-            if (issue == null)
+            if (location == null)
             {
-                throw new KeyNotFoundException($"CommentRepository. Delete(commentId = {Id}) no record to delete.");
+                throw new KeyNotFoundException($"CommentRepository. Delete(commentLocationId = {Id}) no record to delete.");
             }
-            var removedIssue = issuesContext.Issues.Remove(issue);
-            return removedIssue.State == EntityState.Deleted;
+            var removedLocation = issuesContext.Locations.Remove(location);
+            return removedLocation.State == EntityState.Deleted;
         }
 
-        public IssueTO Update(IssueTO Entity)
+        public LocationTO Update(LocationTO Entity)
         {
             if (Entity is null)
             {
@@ -79,10 +80,14 @@ namespace Permackathon.Issues.DAL.Repositories
             }
 
             return issuesContext
-                .Issues
+                .Locations
                 .Update(Entity.ToEF())
                 .Entity
                 .ToTransfertObject();
+        }
+    }
+
+
         }
     }
 }

@@ -9,69 +9,73 @@ using System.Text;
 
 namespace Permackathon.Issues.DAL.Repositories
 {
-    public class IssuesRepository : IIssuesRepository
+
+
+    public class UserRepository : IUserRepository
     {
         private readonly IssuesContext issuesContext;
 
-        public IssuesRepository(IssuesContext issuesContext)
+        public UserRepository(IssuesContext issuesContext)
         {
-            this.issuesContext = issuesContext ?? throw new ArgumentNullException($"{nameof(issuesContext)} in IssueRepository");
+            this.issuesContext = issuesContext ?? throw new ArgumentNullException($"{nameof(issuesContext)} in SectorRepository");
         }
-        public IssueTO Add(IssueTO Entity)
+
+
+        public UserTO Add(UserTO Entity)
         {
             if (Entity is null)
             {
                 throw new ArgumentNullException(nameof(Entity));
             }
 
-            var issue = Entity.ToEF();
-            return issuesContext.Issues.Add(issue).Entity.ToTransfertObject();
+            var user = Entity.ToEF();
+            return issuesContext.Users.Add(user).Entity.ToTransfertObject();
         }
 
-        public IEnumerable<IssueTO> GetAll()
+        public IEnumerable<UserTO> GetAll()
         {
-            return issuesContext.Issues
+            return issuesContext.Users
             .AsNoTracking()
             .Select(r => r.ToTransfertObject()).ToList();
         }
 
-        public IssueTO GetById(int Id)
+        public UserTO GetById(int Id)
         {
-            var issue = issuesContext.Issues
-               .AsNoTracking()
-               .FirstOrDefault(c => c.IssueId == Id);
+            var user = issuesContext.Users
+            .AsNoTracking()
+            .FirstOrDefault(c => c.UserId == Id);
 
-            if (issue is null)
+            if (user is null)
             {
                 throw new KeyNotFoundException($"No effective with ID={Id} was found.");
             }
 
-            return issue.ToTransfertObject();
+            return user.ToTransfertObject();
         }
 
-        public bool Remove(IssueTO entity)
+        public bool Remove(UserTO entity)
         {
             if (entity is null)
             {
                 throw new ArgumentNullException(nameof(entity));
             }
 
-            return Remove(entity.IssueId);
+            return Remove(entity.UserId);
         }
 
         public bool Remove(int Id)
         {
-            var issue = issuesContext.Issues.FirstOrDefault(c => c.IssueId == Id);
+            var user = issuesContext.Sectors.FirstOrDefault(c => c.SectorId == Id);
 
-            if (issue == null)
+            if (user == null)
             {
                 throw new KeyNotFoundException($"CommentRepository. Delete(commentId = {Id}) no record to delete.");
             }
-            var removedIssue = issuesContext.Issues.Remove(issue);
-            return removedIssue.State == EntityState.Deleted;
+            var userUser = issuesContext.Sectors.Remove(user);
+            return userUser.State == EntityState.Deleted;
         }
 
-        public IssueTO Update(IssueTO Entity)
+        public UserTO Update(UserTO Entity)
         {
             if (Entity is null)
             {
@@ -79,7 +83,7 @@ namespace Permackathon.Issues.DAL.Repositories
             }
 
             return issuesContext
-                .Issues
+                .Users
                 .Update(Entity.ToEF())
                 .Entity
                 .ToTransfertObject();
