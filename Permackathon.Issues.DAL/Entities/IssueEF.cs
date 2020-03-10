@@ -1,11 +1,13 @@
 ﻿using Permackathon.Common.Enums;
+using Permackathon.Common.IssuesManager.Interfaces.IRepositories;
+using Permackathon.Common.IssuesManager.TransferObjects;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Permackathon.Common.IssuesManager.TransferObjects
+namespace Permackathon.Issues.DAL.Models
 {
-    public class IssueTO
+    public class IssueEF 
     {
         public int IssueId { get; set; }
         public UserTO Creator { get; set; }
