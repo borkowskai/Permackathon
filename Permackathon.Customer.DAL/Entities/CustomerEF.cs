@@ -1,12 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Permackathon.Common.CustomersManager.TransferObject
+namespace Permackathon.Customer.DAL.Entities
 {
-	// TODO 02.	Create TransferObject
-	public class CustomerTO
-	{
+	// TODO 01.	Create Entity Data Model, EF Core Code First
+	// TODO 01.A.	Install nuget Microsoft.EntityFrameworkCore
+	// TODO 01.B.	Install nuget Microsoft.EntityFrameworkCore.SqlServer
+	// TODO 01.C.	Install nuget Microsoft.EntityFrameWorkCore.Tools
+	// TODO 01.D.	Create entities, CustomerEF
+	public class CustomerEF
+    {
+		[Key]
 		public int IdCustomer { get; set; }
 		public string Name { get; set; }
 		public string Delivery_Street { get; set; }

@@ -9,7 +9,6 @@ namespace Permackathon.Financial.BLL.UseCases
 {
     public class Accountant : IAccountant
     {
-
         private readonly IFMUnitOfWork unitOfWork;
 
         public Accountant(IFMUnitOfWork iFMUnitOfWork)
