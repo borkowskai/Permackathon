@@ -37,7 +37,6 @@ namespace Permackathon.Issues.BLL.UseCases
         public IEnumerable<IssueTO> GetIssues()
             => unitOfWork.IssuesRepository.GetAll();
 
-
         public bool MarkAsArchived(int IssueId, int UserId)
         {
             //je comprends que cela correspond a is SoftDeleted

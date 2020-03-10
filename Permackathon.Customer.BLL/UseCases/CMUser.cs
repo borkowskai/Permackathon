@@ -17,15 +17,6 @@ namespace Permackaathon.Customer.BLL.UseCases
         {
             this.customerRepository = customerRepository ?? throw new ArgumentNullException(nameof(customerRepository));
         }
-        public CustomerTO AddCustomer(CustomerTO Customer)
-        {
-            return customerRepository.Add(Customer);
-        }
-
-        public void DeleteCustomer(int Id)
-        {
-            var deleted = customerRepository.Remove(Id);
-        }
 
         public List<CustomerTO> GetAllCustomers()
         {
@@ -35,11 +26,6 @@ namespace Permackaathon.Customer.BLL.UseCases
         public CustomerTO GetCustomerById(int Id)
         {
             return customerRepository.GetById(Id);
-        }
-
-        public CustomerTO UpdateCustomer(CustomerTO Customer)
-        {
-            return customerRepository.Update(Customer);
         }
     }
 }

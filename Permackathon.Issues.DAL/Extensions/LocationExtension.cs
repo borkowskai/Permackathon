@@ -8,7 +8,7 @@ namespace Permackathon.Issues.DAL.Extensions
 {
     public static class LocationExtension
     {
-        public static LocationTO ToTransfertObject(this LocationEF issue)
+        public static LocationTO ToTransferObject(this LocationEF issue)
         {
             if (issue is null)
                 throw new ArgumentNullException(nameof(issue));
