@@ -26,19 +26,17 @@ namespace Permackathon.API.Controllers
         private readonly IMasterAccountant _Service;
         // POST: api/Accountant
         [HttpPost]
-        public IActionResult AddPredictionData([FromBody] PredictionTO predictionData)
+        public PredictionTO AddPredictionData([FromBody] PredictionTO predictionData)
         {
-            var done = _Service.AddEffectiveData(predictionData);
-            return Ok(done);
+            return _Service.AddEffectiveData(predictionData); ;
         }
-
 
         //===================================== Methods from UserController
         // POST: api/Accountant
         [HttpPost]
-        public RedirectToActionResult AddEffectiveData([FromBody] EffectiveTO effectiveData)
+        public EffectiveTO AddEffectiveData([FromBody] EffectiveTO effectiveData)
         {
-            return RedirectToAction("AddEffectiveData", "AccountantController", effectiveData);
+            return _Service.AddEffectiveData(effectiveData);
         }
 
         //===================================== Methods from UserController
