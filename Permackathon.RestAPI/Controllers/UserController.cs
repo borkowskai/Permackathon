@@ -7,9 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Permackathon.Common.FinancialManager.Interfaces.IRepositories;
 using Permackathon.Common.FinancialManager.Interfaces.UseCases;
 using Permackathon.Common.FinancialManager.TransferObjects;
-using Permackathon.Financial.BLL.UseCases;
 using Permackathon.Financial.DAL;
-using Permackathon.Financial.DAL.Repositories;
 
 namespace Permackathon.API.Controllers
 {
@@ -27,24 +25,18 @@ namespace Permackathon.API.Controllers
         private readonly IFMUnitOfWork _Uow;
         private readonly IFMUser _Service;
 
-        // GET: api/Effective
+        // GET: api/User
         [HttpGet]
-        public IEnumerable<EffectiveTO> Get()
+        public IEnumerable<EffectiveTO> GetEffectives()
         {
             return _Service.GetAllEffectives();
         }
 
-        // GET: api/Effective/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        // GET: api/User
+        [HttpGet]
+        public IEnumerable<PredictionTO> GetPredictions()
         {
-            return "value";
-        }
-
-        // POST: api/Effective
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
+            return _Service.GetAllPredictions();
         }
     }
 }
