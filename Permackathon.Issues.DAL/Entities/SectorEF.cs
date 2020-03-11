@@ -7,7 +7,7 @@ namespace Permackathon.Issues.DAL.Models
 {
     public class SectorEF
     {
-        public int SectorId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
     }
 }

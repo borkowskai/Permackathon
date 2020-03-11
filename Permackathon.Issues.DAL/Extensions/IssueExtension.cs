@@ -15,7 +15,7 @@ namespace Permackathon.Issues.DAL.Extensions
 
                 return new IssueTO
                 {
-                   IssueId = issue.IssueId,
+                   Id = issue.Id,
                    Creator = issue.Creator,
                    Resolver = issue.Resolver,
                    Priority =issue.Priority,
@@ -37,7 +37,7 @@ namespace Permackathon.Issues.DAL.Extensions
 
                 return new IssueEF
                 {
-                    IssueId = issue.IssueId,
+                    Id = issue.Id,
                     Creator = issue.Creator,
                     Resolver = issue.Resolver,
                     Priority = issue.Priority,

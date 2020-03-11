@@ -15,7 +15,7 @@ namespace Permackathon.Issues.DAL.Extensions
 
             return new UserTO
             {
-                UserId = issue.UserId,
+                Id = issue.Id,
                 Name = issue.Name
 
             };
@@ -28,7 +28,7 @@ namespace Permackathon.Issues.DAL.Extensions
 
             return new UserEF
             {
-                UserId = issue.UserId,
+                Id = issue.Id,
                 Name = issue.Name
             };
         }

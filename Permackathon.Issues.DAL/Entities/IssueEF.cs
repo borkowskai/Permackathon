@@ -9,7 +9,7 @@ namespace Permackathon.Issues.DAL.Models
 {
     public class IssueEF 
     {
-        public int IssueId { get; set; }
+        public int Id { get; set; }
         public UserTO Creator { get; set; }
         public UserTO Resolver { get; set; }
         public Priority Priority { get; set; }
