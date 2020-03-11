@@ -4,7 +4,7 @@ Doc for API endpoints, HTTP verb first then URL.
 For the 2 POST mesthod, you can change the route with "user", "accountant" or "masteraccountant". 
 Those methods are available for each role
 
-#FinancialManager
+# FinancialManager
 ## POST - /api/financial/addeffectivedata
 Expects a JSON body such as:
 months : 0 = january - 11 = december
@@ -146,7 +146,7 @@ If succeeded, returns a JSON response with the identical object + an "id" field,
 }
 ```
 
-#IssuesManager
+# IssuesManager
 ## POST - /api/issues/add
 Expects a JSON body such as:
 months : 0 = january - 11 = december
@@ -180,35 +180,160 @@ months : 0 = january - 11 = december
 Expects a JSON body such as:
 months : 0 = january - 11 = december
 ```json
+   {
+    "id": 1,
+    "creator": {
+      "id": 1,
+      "name": "Remi"
+    },
+    "resolver": {
+      "id": 2,
+      "name": "Julien"
+    },
+    "priority": 0,
+    "name": "Réparer Frigo",
+    "deadLine": "2020-04-03T00:00:00",
+    "isCompleted": false,
+    "isSoftDeleted": false,
+    "location": {
+      "id": 1,
+      "name": "Bruxelles"
+    },
+    "sector": {
+      "id": 1,
+      "name": "Production"
+    },
+    "description": "Réparer le frigo 1"
+  },
   {
-  "id": 2,
-  "creator": {
-    "id": 7,
-    "name": "Remi"
+    "id": 2,
+    "creator": {
+      "id": 2,
+      "name": "Julien"
+    },
+    "resolver": {
+      "id": 3,
+      "name": "Nathan"
+    },
+    "priority": 1,
+    "name": "Réparer Frigo",
+    "deadLine": "2020-07-03T00:00:00",
+    "isCompleted": false,
+    "isSoftDeleted": false,
+    "location": {
+      "id": 1,
+      "name": "Bruxelles"
+    },
+    "sector": {
+      "id": 1,
+      "name": "Production"
+    },
+    "description": "Réparer le frigo 1"
   },
-  "resolver": {
-    "id": 8,
-    "name": "Julien"
+  {
+    "id": 3,
+    "creator": {
+      "id": 2,
+      "name": "Julien"
+    },
+    "resolver": {
+      "id": 4,
+      "name": "Carole"
+    },
+    "priority": 2,
+    "name": "Réparer les fenêtres",
+    "deadLine": "2020-03-04T00:00:00",
+    "isCompleted": false,
+    "isSoftDeleted": false,
+    "location": {
+      "id": 2,
+      "name": "Charleroi"
+    },
+    "sector": {
+      "id": 2,
+      "name": "Entretien et Travaux"
+    },
+    "description": "Salle de réunion"
   },
-  "priority": 0,
-  "name": "Réparer Frigo",
-  "deadLine": "2020-03-03T00:00:00",
-  "isCompleted": false,
-  "isSoftDeleted": false,
-  "location": {
-    "id": 7,
-    "name": "Bruxelles"
+  {
+    "id": 4,
+    "creator": {
+      "id": 3,
+      "name": "Nathan"
+    },
+    "resolver": {
+      "id": 1,
+      "name": "Remi"
+    },
+    "priority": 2,
+    "name": "OrganisationFungiParty",
+    "deadLine": "2020-12-03T00:00:00",
+    "isCompleted": false,
+    "isSoftDeleted": false,
+    "location": {
+      "id": 3,
+      "name": "Gand"
+    },
+    "sector": {
+      "id": 3,
+      "name": "GRH"
+    },
+    "description": "Ca va être super !"
   },
-  "sector": {
+  {
+    "id": 5,
+    "creator": {
+      "id": 4,
+      "name": "Carole"
+    },
+    "resolver": {
+      "id": 2,
+      "name": "Julien"
+    },
+    "priority": 0,
+    "name": "Réparer Frigo",
+    "deadLine": "2020-03-11T00:00:00",
+    "isCompleted": false,
+    "isSoftDeleted": false,
+    "location": {
+      "id": 1,
+      "name": "Bruxelles"
+    },
+    "sector": {
+      "id": 1,
+      "name": "Production"
+    },
+    "description": "Réparer le frigo 1"
+  },
+  {
     "id": 6,
-    "name": "Entretien et Travaux"
-  },
-  "description": "Réparer le frigo 1"
-}
+    "creator": {
+      "id": 1,
+      "name": "Remi"
+    },
+    "resolver": {
+      "id": 4,
+      "name": "Carole"
+    },
+    "priority": 1,
+    "name": "Problème moyen",
+    "deadLine": "2020-03-03T00:00:00",
+    "isCompleted": false,
+    "isSoftDeleted": false,
+    "location": {
+      "id": 4,
+      "name": "Liège"
+    },
+    "sector": {
+      "id": 4,
+      "name": "Gestion"
+    },
+    "description": "C'est au premier étage"
+  }
 ```
 # CustomerManager
 ## api/CustomersManager/ComGetAll
-'''json
+```json
     {
         "idCustomer": 1,
         "name": "Archen",
@@ -243,10 +368,10 @@ months : 0 = january - 11 = december
         "price_PoplarPholiote": 0,
         "price_OysterMushrooms": 0
     }
-    '''
+```
    
    ## api/CustomersManager/UserGetAll
-   '''json
+```json
     {
         "idCustomer": 1,
         "name": "Archen",
@@ -281,7 +406,7 @@ months : 0 = january - 11 = december
         "price_PoplarPholiote": 0,
         "price_OysterMushrooms": 0
     }
-    '''
+```
 
     
     
