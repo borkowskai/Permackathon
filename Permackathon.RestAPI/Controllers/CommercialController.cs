@@ -22,7 +22,7 @@ namespace Permackathon.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<CustomerTO>> GetCustomerById(int id)
+        public ActionResult<CustomerTO> GetCustomerById(int id)
         {
             var result = commercial.GetCustomerById(id);
 

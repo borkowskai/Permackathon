@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Permackaathon.Customer.BLL.UseCases;
+using Permackathon.Common.CustomersManager.Interfaces.IRepositories;
 using Permackathon.Common.CustomersManager.Interfaces.UseCases;
 using Permackathon.Common.FinancialManager.Interfaces.IRepositories;
 using Permackathon.Common.FinancialManager.Interfaces.UseCases;
@@ -18,6 +20,7 @@ using Permackathon.Common.IssuesManager.Interfaces.IRepositories;
 using Permackathon.Common.IssuesManager.Interfaces.UseCases;
 using Permackathon.Customer.BLL.UseCases;
 using Permackathon.Customer.DAL;
+using Permackathon.Customer.DAL.Repositories;
 using Permackathon.Financial.BLL.UseCases;
 
 using Permackathon.Financial.DAL;
@@ -46,12 +49,19 @@ namespace Permackathon.API
             services.AddScoped<IMasterAccountant, MasterAccountant>();
 
 
+
+            //CustomerManagement -> Injections de dépendance
+            services.AddDbContext<CustomersManagerContext>();
+            services.AddScoped<ICMCommercial, CMCommercial>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<ICMUser, CMUser>();
+
             //IssuesManagement -> Injections de dépendance
             services.AddDbContext<IssuesContext>();
             services.AddScoped<IIssuesUnitOfWork, IssuesUnitOfWork>();
             services.AddScoped<IUser, User>();
             
-            //CustomerManagement
+
 
             services.AddControllers();
         }
