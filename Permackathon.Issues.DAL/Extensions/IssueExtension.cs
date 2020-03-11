@@ -10,9 +10,6 @@ namespace Permackathon.Issues.DAL.Extensions
     {
             public static IssueTO ToTransferObject(this IssueEF issue)
             {
-                if (issue is null)
-                    throw new ArgumentNullException(nameof(issue));
-
                 return new IssueTO
                 {
                    Id = issue.Id,
@@ -37,7 +34,7 @@ namespace Permackathon.Issues.DAL.Extensions
 
                 return new IssueEF
                 {
-                    Id = issue.Id,
+                    //Id = issue.Id,
                     Creator = issue.Creator.ToEF(),
                     Resolver = issue.Resolver.ToEF(),
                     Priority = issue.Priority,

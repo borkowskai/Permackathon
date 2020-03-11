@@ -10,26 +10,22 @@ namespace Permackathon.Issues.DAL.Extensions
     {
         public static UserTO ToTransferObject(this UserEF issue)
         {
-            if (issue is null)
-                throw new ArgumentNullException(nameof(issue));
-
             return new UserTO
             {
                 Id = issue.Id,
                 Name = issue.Name
-
             };
         }
 
-        public static UserEF ToEF(this UserTO issue)
+        public static UserEF ToEF(this UserTO user)
         {
-            if (issue is null)
-                throw new ArgumentNullException(nameof(issue));
+            if (user is null)
+                throw new ArgumentNullException(nameof(user));
 
             return new UserEF
             {
-                Id = issue.Id,
-                Name = issue.Name
+                //Id = issue.Id,
+                Name = user.Name
             };
         }
     }

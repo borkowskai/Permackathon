@@ -33,7 +33,10 @@ namespace Permackathon.Issues.DAL.Repositories
         public IEnumerable<IssueTO> GetAll()
         {
             return issuesContext.Issues
-            .AsNoTracking()
+                .Include(x => x.Creator)
+                .Include(x => x.Resolver)
+                .Include(x => x.Location)
+                .Include(x=> x.Sector)
             .Select(r => r.ToTransferObject()).ToList();
         }
 

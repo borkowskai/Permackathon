@@ -28,7 +28,7 @@ namespace Permackathon.Issues.DAL.Extensions
 
             return new SectorEF
             {
-                Id = issue.Id,
+                //Id = issue.Id,
                 Name = issue.Name
             };
         }
