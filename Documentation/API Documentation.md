@@ -180,84 +180,156 @@ months : 0 = january - 11 = december
 Expects a JSON body such as:
 months : 0 = january - 11 = december
 ```json
-    {
-        "CreatorId": 1,
-        "DeadLine": "2020/03/03",
-        "Description": "Réparer le frigo 1",
-        "Id": 1,
-        "IsCompleted": "false",
-        "IsSoftDeleted": "false",
-        "LocationId": 1,
-        "Name": "Réparer Frigo",
-        "Priority": 0,
-        "ResolverId": 2,
-        "SectorId": 1
+   {
+    "id": 1,
+    "creator": {
+      "id": 1,
+      "name": "Remi"
     },
-    {
-        "CreatorId": 2,
-        "DeadLine": "2020/04/04",
-        "Description": "Réparer le frigo 1",
-        "Id": 2,
-        "IsCompleted": "false",
-        "IsSoftDeleted": "false",
-        "LocationId": 1,
-        "Name": "Réparer Frigo",
-        "Priority": 1,
-        "ResolverId": 3,
-        "SectorId": 1
+    "resolver": {
+      "id": 2,
+      "name": "Julien"
     },
-    {
-        "CreatorId": 2,
-        "DeadLine": "2020/04/05",
-        "Description": "Salle de réunion",
-        "Id": 3,
-        "IsCompleted": "false",
-        "IsSoftDeleted": "false",
-        "LocationId": 2,
-        "Name": "Réparer les fenêtres",
-        "Priority": 2,
-        "ResolverId": 4,
-        "SectorId": 2
+    "priority": 0,
+    "name": "Réparer Frigo",
+    "deadLine": "2020-04-03T00:00:00",
+    "isCompleted": false,
+    "isSoftDeleted": false,
+    "location": {
+      "id": 1,
+      "name": "Bruxelles"
     },
-    {
-        "CreatorId": 3,
-        "DeadLine": "2020/05/05",
-        "Description": "Ca va être super !",
-        "Id": 4,
-        "IsCompleted": "false",
-        "IsSoftDeleted": "false",
-        "LocationId": 3,
-        "Name": "OrganisationFungiParty",
-        "Priority": 2,
-        "ResolverId": 1,
-        "SectorId": 3
+    "sector": {
+      "id": 1,
+      "name": "Production"
     },
-    {
-        "CreatorId": 4,
-        "DeadLine": "2020/03/03",
-        "Description": "Réparer le frigo 1",
-        "Id": 5,
-        "IsCompleted": "true",
-        "IsSoftDeleted": "false",
-        "LocationId": 1,
-        "Name": "Réparer Frigo",
-        "Priority": 0,
-        "ResolverId": 2,
-        "SectorId": 1
+    "description": "Réparer le frigo 1"
+  },
+  {
+    "id": 2,
+    "creator": {
+      "id": 2,
+      "name": "Julien"
     },
-    {
-        "CreatorId": 1,
-        "DeadLine": "",
-        "Description": "C'est au premier étage",
-        "Id": 6,
-        "IsCompleted": "true",
-        "IsSoftDeleted": "false",
-        "LocationId": 4,
-        "Name": "Problème moyen",
-        "Priority": 1,
-        "ResolverId": 4,
-        "SectorId": 4
-    }
+    "resolver": {
+      "id": 3,
+      "name": "Nathan"
+    },
+    "priority": 1,
+    "name": "Réparer Frigo",
+    "deadLine": "2020-07-03T00:00:00",
+    "isCompleted": false,
+    "isSoftDeleted": false,
+    "location": {
+      "id": 1,
+      "name": "Bruxelles"
+    },
+    "sector": {
+      "id": 1,
+      "name": "Production"
+    },
+    "description": "Réparer le frigo 1"
+  },
+  {
+    "id": 3,
+    "creator": {
+      "id": 2,
+      "name": "Julien"
+    },
+    "resolver": {
+      "id": 4,
+      "name": "Carole"
+    },
+    "priority": 2,
+    "name": "Réparer les fenêtres",
+    "deadLine": "2020-03-04T00:00:00",
+    "isCompleted": false,
+    "isSoftDeleted": false,
+    "location": {
+      "id": 2,
+      "name": "Charleroi"
+    },
+    "sector": {
+      "id": 2,
+      "name": "Entretien et Travaux"
+    },
+    "description": "Salle de réunion"
+  },
+  {
+    "id": 4,
+    "creator": {
+      "id": 3,
+      "name": "Nathan"
+    },
+    "resolver": {
+      "id": 1,
+      "name": "Remi"
+    },
+    "priority": 2,
+    "name": "OrganisationFungiParty",
+    "deadLine": "2020-12-03T00:00:00",
+    "isCompleted": false,
+    "isSoftDeleted": false,
+    "location": {
+      "id": 3,
+      "name": "Gand"
+    },
+    "sector": {
+      "id": 3,
+      "name": "GRH"
+    },
+    "description": "Ca va être super !"
+  },
+  {
+    "id": 5,
+    "creator": {
+      "id": 4,
+      "name": "Carole"
+    },
+    "resolver": {
+      "id": 2,
+      "name": "Julien"
+    },
+    "priority": 0,
+    "name": "Réparer Frigo",
+    "deadLine": "2020-03-11T00:00:00",
+    "isCompleted": false,
+    "isSoftDeleted": false,
+    "location": {
+      "id": 1,
+      "name": "Bruxelles"
+    },
+    "sector": {
+      "id": 1,
+      "name": "Production"
+    },
+    "description": "Réparer le frigo 1"
+  },
+  {
+    "id": 6,
+    "creator": {
+      "id": 1,
+      "name": "Remi"
+    },
+    "resolver": {
+      "id": 4,
+      "name": "Carole"
+    },
+    "priority": 1,
+    "name": "Problème moyen",
+    "deadLine": "2020-03-03T00:00:00",
+    "isCompleted": false,
+    "isSoftDeleted": false,
+    "location": {
+      "id": 4,
+      "name": "Liège"
+    },
+    "sector": {
+      "id": 4,
+      "name": "Gestion"
+    },
+    "description": "C'est au premier étage"
+  }
 ```
 # CustomerManager
 ## api/CustomersManager/ComGetAll
