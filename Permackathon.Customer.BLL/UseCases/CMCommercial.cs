@@ -37,7 +37,6 @@ namespace Permackathon.Customer.BLL.UseCases
 		{
 			return customerRepository.GetAll().ToList();
 		}
-
 		public CustomerTO GetCustomerById(int Id)
 		{
 			return customerRepository.GetById(Id);

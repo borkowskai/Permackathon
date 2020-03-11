@@ -13,9 +13,9 @@ namespace Permackathon.API.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class MasterAccountantController : ControllerBase
     {
-        public UserController(FinancialContext ctx, IFMUnitOfWork uow, IFMUser patrick)
+        public MasterAccountantController(FinancialContext ctx, IFMUnitOfWork uow, IMasterAccountant patrick)
         {
             this._Context = ctx;
             this._Service = patrick;
@@ -23,16 +23,31 @@ namespace Permackathon.API.Controllers
         }
         private readonly FinancialContext _Context;
         private readonly IFMUnitOfWork _Uow;
-        private readonly IFMUser _Service;
+        private readonly IMasterAccountant _Service;
+        // POST: api/Accountant
+        [HttpPost]
+        public PredictionTO AddPredictionData([FromBody] PredictionTO predictionData)
+        {
+            return _Service.AddEffectiveData(predictionData); ;
+        }
 
-        // GET: api/User
+        //===================================== Methods from UserController
+        // POST: api/Accountant
+        [HttpPost]
+        public EffectiveTO AddEffectiveData([FromBody] EffectiveTO effectiveData)
+        {
+            return _Service.AddEffectiveData(effectiveData);
+        }
+
+        //===================================== Methods from UserController
+        // GET: api/MasterAccountant
         [HttpGet]
         public IEnumerable<EffectiveTO> GetEffectives()
         {
             return _Service.GetAllEffectives();
         }
 
-        // GET: api/User
+        // GET: api/MasterAccountant
         [HttpGet]
         public IEnumerable<PredictionTO> GetPredictions()
         {

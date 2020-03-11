@@ -1,4 +1,5 @@
-﻿using Permackathon.Common.IssuesManager.Interfaces.IRepositories;
+﻿using Microsoft.EntityFrameworkCore;
+using Permackathon.Common.IssuesManager.Interfaces.IRepositories;
 using Permackathon.Common.IssuesManager.Interfaces.UseCases;
 using Permackathon.Common.IssuesManager.TransferObjects;
 using System;
@@ -22,37 +23,40 @@ namespace Permackathon.Issues.BLL.UseCases
         public IssueTO AddIssue(IssueTO Issue)
             => unitOfWork.IssuesRepository.Add(Issue);
 
-        public bool BecomeResolver(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public bool BecomeResolver(int IssueId, int UserId)
         {
-            throw new NotImplementedException();
+            IssueTO issue = unitOfWork.IssuesRepository.GetById(IssueId);
+            UserTO user = unitOfWork.UserRepository.GetById(UserId);
+           //seulent un utilisateur peut etre attache, nous n'avons pas de table intermediaire
+            issue.Resolver = user;
+            unitOfWork.IssuesRepository.Update(issue);
+            return true;
+            //TODO exception if needed
         }
 
         public IEnumerable<IssueTO> GetIssues()
             => unitOfWork.IssuesRepository.GetAll();
 
-        public bool MarkAsArchived(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public bool MarkAsArchived(int IssueId, int UserId)
         {
-            throw new NotImplementedException();
-        }
+            //je comprends que cela correspond a is SoftDeleted
+            IssueTO issue = unitOfWork.IssuesRepository.GetById(IssueId);
 
-        public bool MarkAsCompleted(int id)
-        {
-            throw new NotImplementedException();
+            //tu es sure que User Id est necessaire?          
+            //UserTO user = unitOfWork.UserRepository.GetById(UserId);
+            issue.IsSoftDeleted = true;
+            unitOfWork.IssuesRepository.Update(issue);
+            //TODO verifier si necessaire retourner qqch => void
+            return true;
         }
 
         public bool MarkAsCompleted(int IssueId, int UserId)
         {
-            throw new NotImplementedException();
+            IssueTO issue = unitOfWork.IssuesRepository.GetById(IssueId);
+            UserTO user = unitOfWork.UserRepository.GetById(UserId);
+            issue.IsCompleted = true;
+            unitOfWork.IssuesRepository.Update(issue);
+            return true;
         }
     }
 }

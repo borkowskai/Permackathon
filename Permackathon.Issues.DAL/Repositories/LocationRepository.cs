@@ -26,14 +26,16 @@ namespace Permackathon.Issues.DAL.Repositories
 			}
 
 			var location = Entity.ToEF();
-			return issuesContext.Locations.Add(location).Entity.ToTransfertObject();
+			var result = issuesContext.Locations.Add(location);
+			issuesContext.SaveChanges();
+			return result.Entity.ToTransferObject();
 		}
 
 		public IEnumerable<LocationTO> GetAll()
 		{
 			return issuesContext.Locations
 			.AsNoTracking()
-			.Select(r => r.ToTransfertObject()).ToList();
+			.Select(r => r.ToTransferObject()).ToList();
 		}
 
 		public LocationTO GetById(int Id)
@@ -47,7 +49,7 @@ namespace Permackathon.Issues.DAL.Repositories
 				throw new KeyNotFoundException($"No effective with ID={Id} was found.");
 			}
 
-			return location.ToTransfertObject();
+			return location.ToTransferObject();
 		}
 
 		public bool Remove(LocationTO entity)
@@ -83,7 +85,7 @@ namespace Permackathon.Issues.DAL.Repositories
 				.Locations
 				.Update(Entity.ToEF())
 				.Entity
-				.ToTransfertObject();
+				.ToTransferObject();
 		}
 	}
 

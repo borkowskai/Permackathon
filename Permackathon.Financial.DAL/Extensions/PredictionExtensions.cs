@@ -8,7 +8,7 @@ namespace Permackathon.Financial.DAL.Extensions
 {
     public static class PredictionExtensions
     {
-            public static PredictionTO ToTransfertObject(this PredictionEF prediction)
+            public static PredictionTO ToTransferObject(this PredictionEF prediction)
             {
                 if (prediction is null)
                     throw new ArgumentNullException(nameof(prediction));

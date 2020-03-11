@@ -8,7 +8,7 @@ namespace Permackathon.Issues.DAL.Extensions
 {
     public static class UserExtension
     {
-        public static UserTO ToTransfertObject(this UserEF issue)
+        public static UserTO ToTransferObject(this UserEF issue)
         {
             if (issue is null)
                 throw new ArgumentNullException(nameof(issue));
