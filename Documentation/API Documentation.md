@@ -180,35 +180,88 @@ months : 0 = january - 11 = december
 Expects a JSON body such as:
 months : 0 = january - 11 = december
 ```json
-  {
-  "id": 2,
-  "creator": {
-    "id": 7,
-    "name": "Remi"
-  },
-  "resolver": {
-    "id": 8,
-    "name": "Julien"
-  },
-  "priority": 0,
-  "name": "Réparer Frigo",
-  "deadLine": "2020-03-03T00:00:00",
-  "isCompleted": false,
-  "isSoftDeleted": false,
-  "location": {
-    "id": 7,
-    "name": "Bruxelles"
-  },
-  "sector": {
-    "id": 6,
-    "name": "Entretien et Travaux"
-  },
-  "description": "Réparer le frigo 1"
-}
+    {
+        "CreatorId": 1,
+        "DeadLine": "2020/03/03",
+        "Description": "Réparer le frigo 1",
+        "Id": 1,
+        "IsCompleted": "false",
+        "IsSoftDeleted": "false",
+        "LocationId": 1,
+        "Name": "Réparer Frigo",
+        "Priority": 0,
+        "ResolverId": 2,
+        "SectorId": 1
+    },
+    {
+        "CreatorId": 2,
+        "DeadLine": "2020/04/04",
+        "Description": "Réparer le frigo 1",
+        "Id": 2,
+        "IsCompleted": "false",
+        "IsSoftDeleted": "false",
+        "LocationId": 1,
+        "Name": "Réparer Frigo",
+        "Priority": 1,
+        "ResolverId": 3,
+        "SectorId": 1
+    },
+    {
+        "CreatorId": 2,
+        "DeadLine": "2020/04/05",
+        "Description": "Salle de réunion",
+        "Id": 3,
+        "IsCompleted": "false",
+        "IsSoftDeleted": "false",
+        "LocationId": 2,
+        "Name": "Réparer les fenêtres",
+        "Priority": 2,
+        "ResolverId": 4,
+        "SectorId": 2
+    },
+    {
+        "CreatorId": 3,
+        "DeadLine": "2020/05/05",
+        "Description": "Ca va être super !",
+        "Id": 4,
+        "IsCompleted": "false",
+        "IsSoftDeleted": "false",
+        "LocationId": 3,
+        "Name": "OrganisationFungiParty",
+        "Priority": 2,
+        "ResolverId": 1,
+        "SectorId": 3
+    },
+    {
+        "CreatorId": 4,
+        "DeadLine": "2020/03/03",
+        "Description": "Réparer le frigo 1",
+        "Id": 5,
+        "IsCompleted": "true",
+        "IsSoftDeleted": "false",
+        "LocationId": 1,
+        "Name": "Réparer Frigo",
+        "Priority": 0,
+        "ResolverId": 2,
+        "SectorId": 1
+    },
+    {
+        "CreatorId": 1,
+        "DeadLine": "",
+        "Description": "C'est au premier étage",
+        "Id": 6,
+        "IsCompleted": "true",
+        "IsSoftDeleted": "false",
+        "LocationId": 4,
+        "Name": "Problème moyen",
+        "Priority": 1,
+        "ResolverId": 4,
+        "SectorId": 4
+    }
 ```
 # CustomerManager
 ## api/CustomersManager/ComGetAll
-'''json
+```json
     {
         "idCustomer": 1,
         "name": "Archen",
@@ -243,10 +296,10 @@ months : 0 = january - 11 = december
         "price_PoplarPholiote": 0,
         "price_OysterMushrooms": 0
     }
-    '''
+```
    
    ## api/CustomersManager/UserGetAll
-   '''json
+```json
     {
         "idCustomer": 1,
         "name": "Archen",
@@ -281,7 +334,7 @@ months : 0 = january - 11 = december
         "price_PoplarPholiote": 0,
         "price_OysterMushrooms": 0
     }
-    '''
+```
 
     
     
