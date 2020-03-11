@@ -51,7 +51,7 @@ namespace Permackathon.API
             //services.AddTransient<IUser>();
 
             //CustomerManagement
-            //services.AddDbContext<CustomersManagerContext>(options => options.UseSqlServer(@"Data Source=HACKATHON-SRV1\HACKATHON;Initial Catalog=Wapiti;User ID=WapitiUser;Password=WapitiUser;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
+            services.AddDbContext<CustomersManagerContext>();
             //services.AddScoped<ICMCommercial, CMCommercial>();
 
             //CustomerManagement -> Injections de dépendance
