@@ -118,10 +118,11 @@ Example response:
     "learn": 1462,
     "cashFlow": 9760
   },
-
+```
 ## POST - /api/financial/addpredictiondata
 Expects a JSON body such as:
-```json
+```
+cjson
 {
   "month": 0,  (between 0 and 11)
   "year": 2020,
