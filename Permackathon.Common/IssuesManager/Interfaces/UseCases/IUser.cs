@@ -10,9 +10,9 @@ namespace Permackathon.Common.IssuesManager.Interfaces.UseCases
 	{
 		//IssuesManagement
 		IssueTO AddIssue(IssueTO Issue);
-		bool BecomeResolver(int IssueId, int UserId);
-		bool MarkAsCompleted(int IssueId, int UserId);
-		bool MarkAsArchived(int IssueId, int UserId);
+		IssueTO BecomeResolver(int IssueId, int UserId);
+		IssueTO MarkAsCompleted(int IssueId, int UserId);
+		IssueTO MarkAsArchived(int IssueId, int UserId);
 		IEnumerable<IssueTO> GetIssues();
 	}
 }

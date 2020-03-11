@@ -79,12 +79,12 @@ namespace Permackathon.Issues.DAL.Repositories
             {
                 throw new ArgumentNullException(nameof(Entity));
             }
-
-            return issuesContext
+            var result = issuesContext
                 .Issues
                 .Update(Entity.ToEF())
-                .Entity
-                .ToTransferObject();
+                .Entity;
+            issuesContext.SaveChanges();
+            return result.ToTransferObject();
         }
     }
 }
