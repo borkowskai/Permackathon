@@ -4,6 +4,7 @@ using Permackathon.Common.CustomersManager.Interfaces.UseCases;
 using Permackathon.Common.CustomersManager.TransferObject;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Permackathon.Customer.BLL.UseCases
@@ -32,7 +33,7 @@ namespace Permackathon.Customer.BLL.UseCases
 			return customerRepository.Update(Customer);
 		}
 
-		public List<CustomerTO> GetAllCustomers()
+		public IEnumerable<CustomerTO> GetAllCustomers()
 		{
 			return customerRepository.GetAll().ToList();
 		}
