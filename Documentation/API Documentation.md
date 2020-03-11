@@ -32,7 +32,7 @@ If succeeded, returns a JSON response with the identical object + an "id" field,
 }
 ```
 
-## GET - //api/financial/geteffectives
+## GET - /api/financial/geteffectives
 Returns a JSON array with all the prediction objects.
 
 Example response:
@@ -76,7 +76,7 @@ Example response:
   },
 
 ```
-## GET - //api/financial/getpredictions
+## GET - /api/financial/getpredictions
 Returns a JSON array with all the prediction objects.
 
 Example response:
