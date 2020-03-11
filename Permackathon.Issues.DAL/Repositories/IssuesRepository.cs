@@ -33,7 +33,10 @@ namespace Permackathon.Issues.DAL.Repositories
         public IEnumerable<IssueTO> GetAll()
         {
             return issuesContext.Issues
-            .AsNoTracking()
+                .Include(x => x.Creator)
+                .Include(x => x.Resolver)
+                .Include(x => x.Location)
+                .Include(x=> x.Sector)
             .Select(r => r.ToTransferObject()).ToList();
         }
 
@@ -41,7 +44,7 @@ namespace Permackathon.Issues.DAL.Repositories
         {
             var issue = issuesContext.Issues
                .AsNoTracking()
-               .FirstOrDefault(c => c.IssueId == Id);
+               .FirstOrDefault(c => c.Id == Id);
 
             if (issue is null)
             {
@@ -58,12 +61,12 @@ namespace Permackathon.Issues.DAL.Repositories
                 throw new ArgumentNullException(nameof(entity));
             }
 
-            return Remove(entity.IssueId);
+            return Remove(entity.Id);
         }
 
         public bool Remove(int Id)
         {
-            var issue = issuesContext.Issues.FirstOrDefault(c => c.IssueId == Id);
+            var issue = issuesContext.Issues.FirstOrDefault(c => c.Id == Id);
 
             if (issue == null)
             {

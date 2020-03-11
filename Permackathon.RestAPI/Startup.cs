@@ -24,6 +24,7 @@ using Permackathon.Customer.DAL.Repositories;
 using Permackathon.Financial.BLL.UseCases;
 
 using Permackathon.Financial.DAL;
+using Permackathon.Issues.BLL.UseCases;
 using Permackathon.Issues.DAL;
 
 namespace Permackathon.API
@@ -47,16 +48,20 @@ namespace Permackathon.API
             services.AddScoped<IAccountant, Accountant>();
             services.AddScoped<IMasterAccountant, MasterAccountant>();
 
-            //IssuesManagement -> Injections de dépendance
-            //services.AddTransient<IssuesContext>();
-            //services.AddTransient<IIssuesUnitOfWork>();
-            //services.AddTransient<IUser>();
+
 
             //CustomerManagement -> Injections de dépendance
             services.AddDbContext<CustomersManagerContext>();
             services.AddScoped<ICMCommercial, CMCommercial>();
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<ICMUser, CMUser>();
+
+            //IssuesManagement -> Injections de dépendance
+            services.AddDbContext<IssuesContext>();
+            services.AddScoped<IIssuesUnitOfWork, IssuesUnitOfWork>();
+            services.AddScoped<IUser, User>();
+            
+
 
             services.AddControllers();
         }
