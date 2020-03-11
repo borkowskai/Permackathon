@@ -4,7 +4,7 @@ Doc for API endpoints, HTTP verb first then URL.
 For the 2 POST mesthod, you can change the route with "user", "accountant" or "masteraccountant". 
 Those methods are available for each role
 
-#FinancialManager
+# FinancialManager
 ## POST - /api/financial/addeffectivedata
 Expects a JSON body such as:
 months : 0 = january - 11 = december
@@ -146,7 +146,7 @@ If succeeded, returns a JSON response with the identical object + an "id" field,
 }
 ```
 
-#IssuesManager
+# IssuesManager
 ## POST - /api/issues/add
 Expects a JSON body such as:
 months : 0 = january - 11 = december
