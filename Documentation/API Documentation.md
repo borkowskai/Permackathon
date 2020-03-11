@@ -206,3 +206,82 @@ months : 0 = january - 11 = december
   "description": "Réparer le frigo 1"
 }
 ```
+# CustomerManager
+## api/CustomersManager/ComGetAll
+'''json
+    {
+        "idCustomer": 1,
+        "name": "Archen",
+        "delivery_Street": "rue de l'Aqueduc",
+        "delivery_StreetNumber": 95,
+        "delivery_ZipCode": 1050,
+        "delivery_Location": "Ixelles",
+        "delivery_Information": "Chez Tan",
+        "contact_FirstName": "Xavier",
+        "contact_LastName": "Gigtelink",
+        "contact_Role": "Responsable",
+        "contact_Tel": 488872707,
+        "contact_Mail": "larchenterre@larchenterre.be",
+        "price_WhiteOyster": 17,
+        "price_PoplarPholiote": 19,
+        "price_OysterMushrooms": 19
+    },
+    {
+        "idCustomer": 2,
+        "name": null,
+        "delivery_Street": null,
+        "delivery_StreetNumber": 0,
+        "delivery_ZipCode": 0,
+        "delivery_Location": null,
+        "delivery_Information": null,
+        "contact_FirstName": null,
+        "contact_LastName": null,
+        "contact_Role": null,
+        "contact_Tel": 0,
+        "contact_Mail": null,
+        "price_WhiteOyster": 0,
+        "price_PoplarPholiote": 0,
+        "price_OysterMushrooms": 0
+    }
+    '''
+   
+   ## api/CustomersManager/UserGetAll
+   '''json
+    {
+        "idCustomer": 1,
+        "name": "Archen",
+        "delivery_Street": "rue de l'Aqueduc",
+        "delivery_StreetNumber": 95,
+        "delivery_ZipCode": 1050,
+        "delivery_Location": "Ixelles",
+        "delivery_Information": "Chez Tan",
+        "contact_FirstName": "Xavier",
+        "contact_LastName": "Gigtelink",
+        "contact_Role": "Responsable",
+        "contact_Tel": 488872707,
+        "contact_Mail": "larchenterre@larchenterre.be",
+        "price_WhiteOyster": 17,
+        "price_PoplarPholiote": 19,
+        "price_OysterMushrooms": 19
+    },
+    {
+        "idCustomer": 2,
+        "name": null,
+        "delivery_Street": null,
+        "delivery_StreetNumber": 0,
+        "delivery_ZipCode": 0,
+        "delivery_Location": null,
+        "delivery_Information": null,
+        "contact_FirstName": null,
+        "contact_LastName": null,
+        "contact_Role": null,
+        "contact_Tel": 0,
+        "contact_Mail": null,
+        "price_WhiteOyster": 0,
+        "price_PoplarPholiote": 0,
+        "price_OysterMushrooms": 0
+    }
+    '''
+
+    
+    
