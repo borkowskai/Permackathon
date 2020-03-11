@@ -8,7 +8,6 @@ namespace Permackathon.Issues.DAL.Models
 {
     public class LocationEF
     {
-        [Key]
         public int Id { get; set; }
         public string Name { get; set; }
     }
