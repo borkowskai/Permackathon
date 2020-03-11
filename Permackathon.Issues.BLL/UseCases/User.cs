@@ -23,21 +23,21 @@ namespace Permackathon.Issues.BLL.UseCases
         public IssueTO AddIssue(IssueTO Issue)
             => unitOfWork.IssuesRepository.Add(Issue);
 
-        public bool BecomeResolver(int IssueId, int UserId)
+        public IssueTO BecomeResolver(int IssueId, int UserId)
         {
             IssueTO issue = unitOfWork.IssuesRepository.GetById(IssueId);
             UserTO user = unitOfWork.UserRepository.GetById(UserId);
            //seulent un utilisateur peut etre attache, nous n'avons pas de table intermediaire
             issue.Resolver = user;
-            unitOfWork.IssuesRepository.Update(issue);
-            return true;
+            var result =unitOfWork.IssuesRepository.Update(issue);
+            return result;
             //TODO exception if needed
         }
 
         public IEnumerable<IssueTO> GetIssues()
             => unitOfWork.IssuesRepository.GetAll();
 
-        public bool MarkAsArchived(int IssueId, int UserId)
+        public IssueTO MarkAsArchived(int IssueId, int UserId)
         {
             //je comprends que cela correspond a is SoftDeleted
             IssueTO issue = unitOfWork.IssuesRepository.GetById(IssueId);
@@ -45,18 +45,18 @@ namespace Permackathon.Issues.BLL.UseCases
             //tu es sure que User Id est necessaire?          
             //UserTO user = unitOfWork.UserRepository.GetById(UserId);
             issue.IsSoftDeleted = true;
-            unitOfWork.IssuesRepository.Update(issue);
+            var result =unitOfWork.IssuesRepository.Update(issue);
             //TODO verifier si necessaire retourner qqch => void
-            return true;
+            return result;
         }
 
-        public bool MarkAsCompleted(int IssueId, int UserId)
+        public IssueTO MarkAsCompleted(int IssueId, int UserId)
         {
             IssueTO issue = unitOfWork.IssuesRepository.GetById(IssueId);
             UserTO user = unitOfWork.UserRepository.GetById(UserId);
             issue.IsCompleted = true;
-            unitOfWork.IssuesRepository.Update(issue);
-            return true;
+            var result = unitOfWork.IssuesRepository.Update(issue);
+            return result;
         }
     }
 }
