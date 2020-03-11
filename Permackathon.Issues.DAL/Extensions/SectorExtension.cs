@@ -15,7 +15,7 @@ namespace Permackathon.Issues.DAL.Extensions
 
             return new SectorTO
             {
-                SectorId = issue.SectorId,
+                Id = issue.Id,
                 Name =issue.Name
 
             };
@@ -28,7 +28,7 @@ namespace Permackathon.Issues.DAL.Extensions
 
             return new SectorEF
             {
-                SectorId = issue.SectorId,
+                //Id = issue.Id,
                 Name = issue.Name
             };
         }

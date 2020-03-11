@@ -42,7 +42,7 @@ namespace Permackathon.Issues.DAL.Repositories
         {
             var sector = issuesContext.Sectors
            .AsNoTracking()
-           .FirstOrDefault(c => c.SectorId == Id);
+           .FirstOrDefault(c => c.Id == Id);
 
             if (sector is null)
             {
@@ -59,12 +59,12 @@ namespace Permackathon.Issues.DAL.Repositories
                 throw new ArgumentNullException(nameof(entity));
             }
 
-            return Remove(entity.SectorId);
+            return Remove(entity.Id);
         }
 
         public bool Remove(int Id)
         {
-            var sector = issuesContext.Sectors.FirstOrDefault(c => c.SectorId == Id);
+            var sector = issuesContext.Sectors.FirstOrDefault(c => c.Id == Id);
 
             if (sector == null)
             {

@@ -5,11 +5,12 @@ For the 2 POST mesthod, you can change the route with "user", "accountant" or "m
 Those methods are available for each role
 
 #FinancialManager
-## POST - /api/accountant/addeffectivedata
+## POST - /api/financial/addeffectivedata
 Expects a JSON body such as:
+months : 0 = january - 11 = december
 ```json
 {
-  "month": 0,  (between 0 and 11)
+  "month": 0,  
   "year": 2020,
   "eat": 1034.4,
   "grow": 2300.2,
@@ -31,7 +32,7 @@ If succeeded, returns a JSON response with the identical object + an "id" field,
 }
 ```
 
-## GET - //api/user/geteffectives
+## GET - /api/financial/geteffectives
 Returns a JSON array with all the prediction objects.
 
 Example response:
@@ -75,7 +76,7 @@ Example response:
   },
 
 ```
-## GET - //api/user/getpredictions
+## GET - /api/financial/getpredictions
 Returns a JSON array with all the prediction objects.
 
 Example response:
@@ -117,10 +118,11 @@ Example response:
     "learn": 1462,
     "cashFlow": 9760
   },
-
-## POST - /api/masteraccountant/addpredictiondata
+```
+## POST - /api/financial/addpredictiondata
 Expects a JSON body such as:
-```json
+```
+cjson
 {
   "month": 0,  (between 0 and 11)
   "year": 2020,
@@ -144,3 +146,63 @@ If succeeded, returns a JSON response with the identical object + an "id" field,
 }
 ```
 
+#IssuesManager
+## POST - /api/issues/add
+Expects a JSON body such as:
+months : 0 = january - 11 = december
+```json
+  {
+    "creator": {
+      "id": 1,
+      "name": "Remi"
+    },
+    "resolver": {
+      "id": 2,
+      "name": "Julien"
+    },
+    "priority": 0,
+    "name": "Réparer Frigo",
+    "deadLine": "2020-03-03T00:00:00",
+    "isCompleted": false,
+    "isSoftDeleted": false,
+    "location": {
+      "id": 1,
+      "name": "Bruxelles"
+    },
+    "sector": {
+      "id": 2,
+      "name": "Entretien et Travaux"
+    },
+    "description": "Réparer le frigo 1"
+  }
+```
+## GET - /api/issues/get
+Expects a JSON body such as:
+months : 0 = january - 11 = december
+```json
+  {
+  "id": 2,
+  "creator": {
+    "id": 7,
+    "name": "Remi"
+  },
+  "resolver": {
+    "id": 8,
+    "name": "Julien"
+  },
+  "priority": 0,
+  "name": "Réparer Frigo",
+  "deadLine": "2020-03-03T00:00:00",
+  "isCompleted": false,
+  "isSoftDeleted": false,
+  "location": {
+    "id": 7,
+    "name": "Bruxelles"
+  },
+  "sector": {
+    "id": 6,
+    "name": "Entretien et Travaux"
+  },
+  "description": "Réparer le frigo 1"
+}
+```

@@ -7,7 +7,7 @@ namespace Permackathon.Common.IssuesManager.TransferObjects
 {
     public class IssueTO
     {
-        public int IssueId { get; set; }
+        public int Id { get; set; }
         public UserTO Creator { get; set; }
         public UserTO Resolver { get; set; }
         public Priority Priority { get; set; }

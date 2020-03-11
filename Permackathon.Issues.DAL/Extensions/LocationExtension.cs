@@ -15,7 +15,7 @@ namespace Permackathon.Issues.DAL.Extensions
 
             return new LocationTO
             {
-                LocationId = issue.LocationId,
+                Id = issue.Id,
                 Name = issue.Name
 
             };
@@ -28,7 +28,7 @@ namespace Permackathon.Issues.DAL.Extensions
 
             return new LocationEF
             {
-                LocationId = issue.LocationId,
+                //Id = issue.Id,
                 Name = issue.Name
             };
         }
