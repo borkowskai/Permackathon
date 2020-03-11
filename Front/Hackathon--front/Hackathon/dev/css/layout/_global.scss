@@ -1,0 +1,48 @@
+html , body {
+    width: 100vw; height: 100vh;
+    font-family: mr-eaves-modern, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    
+}
+
+body{
+    background:#ebebeb;
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    justify-content: center;
+    overflow: hidden;
+    // margin-top: 250px;
+    // justify-content: center;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.wrapper {
+    height: 100vh;
+    overflow-y: scroll;
+    // position: fixed;
+    &.extend {
+        background-color: rgba(36, 94, 36, 0.24);
+    }
+    &.desactive {
+        &.section__historic {
+            // left: -100%;
+            > div {
+                opacity: 0.4;
+                filter: saturate(0);
+                transform: scale(0.8);
+            }
+        }
+        &.section__in-process {
+            // right: -100%;
+            > div {
+                opacity: 0.4;
+                transform: scale(0.8);
+            }
+        }
+    }
+}
