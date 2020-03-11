@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Permackathon.Issues.DAL.Models
+namespace Permackathon.Common.IssuesManager.Entities
 {
-    public class SectorEF
+    public class UserEF 
     {
         public int Id { get; set; }
         public string Name { get; set; }

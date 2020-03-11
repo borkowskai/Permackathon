@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Permackathon.Issues.DAL.Models;
+using Permackathon.Common.IssuesManager.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;

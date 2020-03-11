@@ -1,11 +1,7 @@
 ﻿using Permackathon.Common.Enums;
-using Permackathon.Common.IssuesManager.Interfaces.IRepositories;
-using Permackathon.Common.IssuesManager.TransferObjects;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Permackathon.Issues.DAL.Models
+namespace Permackathon.Common.IssuesManager.Entities
 {
     public class IssueEF 
     {
