@@ -44,7 +44,7 @@ namespace Permackathon.Issues.DAL.Repositories
         {
             var user = issuesContext.Users
             .AsNoTracking()
-            .FirstOrDefault(c => c.UserId == Id);
+            .FirstOrDefault(c => c.Id == Id);
 
             if (user is null)
             {
@@ -59,12 +59,12 @@ namespace Permackathon.Issues.DAL.Repositories
             {
                 throw new ArgumentNullException(nameof(entity));
             }
-            return Remove(entity.UserId);
+            return Remove(entity.Id);
         }
 
         public bool Remove(int Id)
         {
-            var user = issuesContext.Sectors.FirstOrDefault(c => c.SectorId == Id);
+            var user = issuesContext.Sectors.FirstOrDefault(c => c.Id == Id);
 
             if (user == null)
             {

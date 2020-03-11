@@ -19,7 +19,6 @@ namespace Permackathon.Issues.BLL.UseCases
             this.unitOfWork = iIssuesUnitOfWork ?? throw new System.ArgumentNullException(nameof(iIssuesUnitOfWork));
         }
 
-        //Implementing Methods
         public IssueTO AddIssue(IssueTO Issue)
             => unitOfWork.IssuesRepository.Add(Issue);
 
@@ -27,11 +26,9 @@ namespace Permackathon.Issues.BLL.UseCases
         {
             IssueTO issue = unitOfWork.IssuesRepository.GetById(IssueId);
             UserTO user = unitOfWork.UserRepository.GetById(UserId);
-           //seulent un utilisateur peut etre attache, nous n'avons pas de table intermediaire
             issue.Resolver = user;
             var result =unitOfWork.IssuesRepository.Update(issue);
             return result;
-            //TODO exception if needed
         }
 
         public IEnumerable<IssueTO> GetIssues()
@@ -39,14 +36,10 @@ namespace Permackathon.Issues.BLL.UseCases
 
         public IssueTO MarkAsArchived(int IssueId, int UserId)
         {
-            //je comprends que cela correspond a is SoftDeleted
             IssueTO issue = unitOfWork.IssuesRepository.GetById(IssueId);
-
-            //tu es sure que User Id est necessaire?          
-            //UserTO user = unitOfWork.UserRepository.GetById(UserId);
+            UserTO user = unitOfWork.UserRepository.GetById(UserId);
             issue.IsSoftDeleted = true;
             var result =unitOfWork.IssuesRepository.Update(issue);
-            //TODO verifier si necessaire retourner qqch => void
             return result;
         }
 

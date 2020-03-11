@@ -6,7 +6,7 @@ namespace Permackathon.Common.IssuesManager.TransferObjects
 {
     public class UserTO
     {
-        public int UserId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
     }
 }

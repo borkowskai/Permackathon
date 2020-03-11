@@ -42,7 +42,7 @@ namespace Permackathon.Issues.DAL.Repositories
 		{
 			var location = issuesContext.Locations
 			.AsNoTracking()
-			.FirstOrDefault(c => c.LocationId == Id);
+			.FirstOrDefault(c => c.Id == Id);
 
 			if (location is null)
 			{
@@ -59,12 +59,12 @@ namespace Permackathon.Issues.DAL.Repositories
 				throw new ArgumentNullException(nameof(entity));
 			}
 
-			return Remove(entity.LocationId);
+			return Remove(entity.Id);
 		}
 
 		public bool Remove(int Id)
 		{
-			var location = issuesContext.Locations.FirstOrDefault(c => c.LocationId == Id);
+			var location = issuesContext.Locations.FirstOrDefault(c => c.Id == Id);
 
 			if (location == null)
 			{

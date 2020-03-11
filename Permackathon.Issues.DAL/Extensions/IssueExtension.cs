@@ -10,21 +10,18 @@ namespace Permackathon.Issues.DAL.Extensions
     {
             public static IssueTO ToTransferObject(this IssueEF issue)
             {
-                if (issue is null)
-                    throw new ArgumentNullException(nameof(issue));
-
                 return new IssueTO
                 {
-                   IssueId = issue.IssueId,
-                   Creator = issue.Creator,
-                   Resolver = issue.Resolver,
+                   Id = issue.Id,
+                   Creator = issue.Creator.ToTransferObject(),
+                   Resolver = issue.Resolver.ToTransferObject(),
                    Priority =issue.Priority,
                    Name = issue.Name,
                    DeadLine = issue.DeadLine,
                    IsCompleted = issue.IsCompleted,
                    IsSoftDeleted =issue.IsSoftDeleted,
-                   Location = issue.Location,
-                   Sector =issue.Sector,
+                   Location = issue.Location.ToTransferObject(),
+                   Sector =issue.Sector.ToTransferObject(),
                    Description =issue.Description
 
                 };
@@ -37,16 +34,16 @@ namespace Permackathon.Issues.DAL.Extensions
 
                 return new IssueEF
                 {
-                    IssueId = issue.IssueId,
-                    Creator = issue.Creator,
-                    Resolver = issue.Resolver,
+                    //Id = issue.Id,
+                    Creator = issue.Creator.ToEF(),
+                    Resolver = issue.Resolver.ToEF(),
                     Priority = issue.Priority,
                     Name = issue.Name,
                     DeadLine = issue.DeadLine,
                     IsCompleted = issue.IsCompleted,
                     IsSoftDeleted = issue.IsSoftDeleted,
-                    Location = issue.Location,
-                    Sector = issue.Sector,
+                    Location = issue.Location.ToEF(),
+                    Sector = issue.Sector.ToEF(),
                     Description = issue.Description
                 };
             }

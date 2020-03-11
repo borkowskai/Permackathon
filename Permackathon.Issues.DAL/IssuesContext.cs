@@ -19,7 +19,7 @@ namespace Permackathon.Issues.DAL
 
             if (!optionsBuilder.IsConfigured)
             {
-                //optionsBuilder./*UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=FacilityDB;Trusted_Connection=True;")*/;
+                optionsBuilder.UseSqlite(@"Data Source=Issue.db;");
                 optionsBuilder.EnableSensitiveDataLogging();
             }
         }
