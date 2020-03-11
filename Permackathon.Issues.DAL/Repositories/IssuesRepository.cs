@@ -24,7 +24,7 @@ namespace Permackathon.Issues.DAL.Repositories
             }
 
             var result = issuesContext.Issues.Add(Entity);
-            //issuesContext.SaveChanges();
+            issuesContext.SaveChanges();
             return result.Entity;
         }
 
