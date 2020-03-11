@@ -5,7 +5,7 @@ For the 2 POST mesthod, you can change the route with "user", "accountant" or "m
 Those methods are available for each role
 
 #FinancialManager
-## POST - /api/accountant/addeffectivedata
+## POST - /api/financial/addeffectivedata
 Expects a JSON body such as:
 ```json
 {
@@ -31,7 +31,7 @@ If succeeded, returns a JSON response with the identical object + an "id" field,
 }
 ```
 
-## GET - //api/user/geteffectives
+## GET - //api/financial/geteffectives
 Returns a JSON array with all the prediction objects.
 
 Example response:
@@ -75,7 +75,7 @@ Example response:
   },
 
 ```
-## GET - //api/user/getpredictions
+## GET - //api/financial/getpredictions
 Returns a JSON array with all the prediction objects.
 
 Example response:
@@ -118,7 +118,7 @@ Example response:
     "cashFlow": 9760
   },
 
-## POST - /api/masteraccountant/addpredictiondata
+## POST - /api/financial/addpredictiondata
 Expects a JSON body such as:
 ```json
 {
