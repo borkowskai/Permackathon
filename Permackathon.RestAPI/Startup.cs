@@ -55,8 +55,6 @@ namespace Permackathon.API
             //services.AddScoped<ICMCommercial, CMCommercial>();
 
             //CustomerManagement -> Injections de dépendance
-
-
             services.AddControllers();
         }
 
