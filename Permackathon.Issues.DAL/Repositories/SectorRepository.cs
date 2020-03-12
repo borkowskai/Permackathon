@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Permackathon.Common.IssuesManager.Entities;
 using Permackathon.Common.IssuesManager.Interfaces.IRepositories;
-using Permackathon.Common.IssuesManager.TransferObjects;
-using Permackathon.Issues.DAL.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,53 +17,53 @@ namespace Permackathon.Issues.DAL.Repositories
         {
             this.issuesContext = issuesContext ?? throw new ArgumentNullException($"{nameof(issuesContext)} in SectorRepository");
         }
-        public SectorTO Add(SectorTO Entity)
+        public SectorEF Add(SectorEF Entity)
         {
             if (Entity is null)
             {
                 throw new ArgumentNullException(nameof(Entity));
             }
 
-            var sector = Entity.ToEF();
+            var sector = Entity;
             var result = issuesContext.Sectors.Add(sector);
             issuesContext.SaveChanges();
-            return result.Entity.ToTransferObject();
+            return result.Entity;
         }
 
-        public IEnumerable<SectorTO> GetAll()
+        public IEnumerable<SectorEF> GetAll()
         {
             return issuesContext.Sectors
             .AsNoTracking()
-            .Select(r => r.ToTransferObject()).ToList();
+            .Select(r => r).ToList();
         }
 
-        public SectorTO GetById(int Id)
+        public SectorEF GetById(int Id)
         {
             var sector = issuesContext.Sectors
            .AsNoTracking()
-           .FirstOrDefault(c => c.SectorId == Id);
+           .FirstOrDefault(c => c.Id == Id);
 
             if (sector is null)
             {
                 throw new KeyNotFoundException($"No effective with ID={Id} was found.");
             }
 
-            return sector.ToTransferObject();
+            return sector;
         }
 
-        public bool Remove(SectorTO entity)
+        public bool Remove(SectorEF entity)
         {
             if (entity is null)
             {
                 throw new ArgumentNullException(nameof(entity));
             }
 
-            return Remove(entity.SectorId);
+            return Remove(entity.Id);
         }
 
         public bool Remove(int Id)
         {
-            var sector = issuesContext.Sectors.FirstOrDefault(c => c.SectorId == Id);
+            var sector = issuesContext.Sectors.FirstOrDefault(c => c.Id == Id);
 
             if (sector == null)
             {
@@ -74,7 +73,7 @@ namespace Permackathon.Issues.DAL.Repositories
             return removedSector.State == EntityState.Deleted;
         }
 
-        public SectorTO Update(SectorTO Entity)
+        public SectorEF Update(SectorEF Entity)
         {
             if (Entity is null)
             {
@@ -83,9 +82,9 @@ namespace Permackathon.Issues.DAL.Repositories
 
             return issuesContext
                 .Sectors
-                .Update(Entity.ToEF())
+                .Update(Entity)
                 .Entity
-                .ToTransferObject();
+                ;
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Permackathon.Issues.DAL.Models;
+using Permackathon.Common.IssuesManager.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,7 +19,7 @@ namespace Permackathon.Issues.DAL
 
             if (!optionsBuilder.IsConfigured)
             {
-                //optionsBuilder./*UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=FacilityDB;Trusted_Connection=True;")*/;
+                optionsBuilder.UseSqlite(@"Data Source=Issue.db;");
                 optionsBuilder.EnableSensitiveDataLogging();
             }
         }

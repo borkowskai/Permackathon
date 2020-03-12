@@ -1,12 +1,12 @@
 ﻿using Permackathon.Common.AccessHelpers;
-using Permackathon.Common.IssuesManager.TransferObjects;
+using Permackathon.Common.IssuesManager.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Permackathon.Common.IssuesManager.Interfaces.IRepositories
 {
-    public interface IUserRepository : IRepository<UserTO, int>
+    public interface IUserRepository : IRepository<UserEF, int>
     {
     }
 }

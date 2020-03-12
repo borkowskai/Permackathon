@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Permackaathon.Customer.BLL.UseCases;
+using Permackathon.Common.CustomersManager.Interfaces.IRepositories;
 using Permackathon.Common.CustomersManager.Interfaces.UseCases;
 using Permackathon.Common.FinancialManager.Interfaces.IRepositories;
 using Permackathon.Common.FinancialManager.Interfaces.UseCases;
@@ -18,9 +20,11 @@ using Permackathon.Common.IssuesManager.Interfaces.IRepositories;
 using Permackathon.Common.IssuesManager.Interfaces.UseCases;
 using Permackathon.Customer.BLL.UseCases;
 using Permackathon.Customer.DAL;
+using Permackathon.Customer.DAL.Repositories;
 using Permackathon.Financial.BLL.UseCases;
 
 using Permackathon.Financial.DAL;
+using Permackathon.Issues.BLL.UseCases;
 using Permackathon.Issues.DAL;
 
 namespace Permackathon.API
@@ -43,18 +47,20 @@ namespace Permackathon.API
             services.AddScoped<IFMUser, FMUser>();
             services.AddScoped<IAccountant, Accountant>();
             services.AddScoped<IMasterAccountant, MasterAccountant>();
-            
 
-            //IssuesManagement -> Injections de dépendance
-            //services.AddTransient<IssuesContext>();
-            //services.AddTransient<IIssuesUnitOfWork>();
-            //services.AddTransient<IUser>();
 
-            //CustomerManagement
-            //services.AddDbContext<CustomersManagerContext>(options => options.UseSqlServer(@"Data Source=HACKATHON-SRV1\HACKATHON;Initial Catalog=Wapiti;User ID=WapitiUser;Password=WapitiUser;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
-            //services.AddScoped<ICMCommercial, CMCommercial>();
 
             //CustomerManagement -> Injections de dépendance
+            services.AddDbContext<CustomersManagerContext>();
+            services.AddScoped<ICMCommercial, CMCommercial>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<ICMUser, CMUser>();
+
+            //IssuesManagement -> Injections de dépendance
+            services.AddDbContext<IssuesContext>();
+            services.AddScoped<IIssuesUnitOfWork, IssuesUnitOfWork>();
+            services.AddScoped<IUser, User>();
+            
 
 
             services.AddControllers();

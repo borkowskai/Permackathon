@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
   </ItemGroup>
 
@@ -14,6 +18,7 @@
     <ProjectReference Include="..\Permackathon.Customer.DAL\Permackathon.Customer.DAL.csproj" />
     <ProjectReference Include="..\Permackathon.Financial.BLL\Permackathon.Financial.BLL.csproj" />
     <ProjectReference Include="..\Permackathon.Financial.DAL\Permackathon.Financial.DAL.csproj" />
+    <ProjectReference Include="..\Permackathon.Issues.BLL\Permackathon.Issues.BLL.csproj" />
     <ProjectReference Include="..\Permackathon.Issues.DAL\Permackathon.Issues.DAL.csproj" />
   </ItemGroup>
 

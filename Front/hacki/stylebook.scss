@@ -1,0 +1,266 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+  position: relative;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  height: 220px;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.164);
+          box-shadow: 0 5px 20px rgba(0, 0, 0, 0.164);
+  font-family: mr-eaves-modern, sans-serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.header__logo a {
+  text-decoration: none;
+  text-align: center;
+  color: #7c5b5b;
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 0.1rem;
+}
+
+.header__logo a span {
+  color: #487748;
+}
+
+.header__logo img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+.book{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 250px;
+    left:50%;
+    transform: translatex(-50%);
+
+
+.bloc--task {
+    width: 100%;
+    max-width: 600px;
+    height: 80px;
+    position: relative;
+    border-radius: 15px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.144);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.144);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    background: white;
+    margin: 20px 0;
+    overflow: hidden;
+    z-index: 10;
+  }
+  .create-and-done-user {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 12px 20px;
+    width: 100%;
+    height: 50px;
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    letter-spacing: .1rem;
+    position: relative;
+  }
+  
+  .create-and-done-user::after {
+    content: "";
+    width: 93%;
+    height: 1px;
+    background-color: black;
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  
+  .create-and-done-user .create-user {
+    font-size: 0.7rem;
+  }
+  
+  .create-and-done-user .create-user::before {
+    content: "Create by";
+    padding-right: 10px;
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    position: relative;
+    font-weight: 700;
+  }
+  
+  .create-and-done-user .done-user {
+    font-size: 0.7rem;
+  }
+  
+  .create-and-done-user .done-user::before {
+    content: "Take by";
+    padding-right: 10px;
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    position: relative;
+    font-weight: 700;
+  }
+  
+  .date-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 0 20px;
+    position: absolute;
+    bottom: 9.5px;
+    left: 0;
+    width: 100%;
+  }
+  
+  .date-info .date {
+    font-weight: 700;
+    letter-spacing: .1rem;
+    font-size: 0.7rem;
+  }
+  
+  .date-info .date::before {
+    content: "♫";
+    padding-right: 10px;
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    position: relative;
+  }
+  
+  .date-info .info::before {
+    content: "...";
+    position: absolute;
+    bottom: -2px;
+    right: 15px;
+    font-size: 2rem;
+  }
+  .task {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-radius: 15px;
+    background-color: #b9b7b7;
+    -webkit-transition: ease-in-out transform .3s;
+    transition: ease-in-out transform .3s;
+  }
+  
+  .task.zindex {
+    -webkit-transform: translateY(-120%);
+            transform: translateY(-120%);
+  }
+  
+  .task span {
+    padding: 10px 20px;
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: .08rem;
+    line-height: 0.9rem;
+  }}

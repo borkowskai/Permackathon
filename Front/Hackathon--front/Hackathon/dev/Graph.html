@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+    
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.typekit.net/zcl2lmo.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/8cbd48117c.js" crossorigin="anonymous"></script>
+    
+    <title>Document</title>
+    
+</head>
+
+<body>
+    
+    <header>
+        <div class="logo--menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="div--filtre"> <span>Filtres</span>
+            <form method="POST" action="traitement.php">
+                    <label for="filter--menu" class="filter--menu">
+                        <div>by importance
+                            <button name="" class="importance--filter" >importance</button>
+                        </div>
+                        <div>By Date
+                            <button name="" class="date--filter" >Date</button>
+                        </div>
+                        
+                        <div>by user
+                            <select  name="user" id="#filter--user">
+                                <optgroup label="user">
+                
+                                    <option value="André Clavier">André Clavier</option>
+                                    <option value="Camille Souris">Camille Souris</option>
+                                    <option value="Irène Delaporte">Irène Delaporte</option>
+                                    <option value="Pierre Chataigne">Pierre Chataigne</option>
+                
+                                </optgroup>
+                            </select>
+                        </div>
+                        
+                        <div>by location
+                            <select  name="location" id="#filter--location">
+                                <optgroup label="location">
+                
+                                    <option value="Bruxelles">Bruxelles</option>
+                                    <option value="Charleroi">Charleroi</option>
+                                    <option value="Liège">Liège</option>
+                                </optgroup>
+                
+                            </select>
+                        </div>
+                    </label>
+            </form>
+        </div>
+        <div class="header__logo">
+            <a href="#">
+                PERMA<span>FUNGHI</span>
+                <!-- <img src="img/logo-png-80x80.png" alt=""> -->
+            </a>
+        </div>
+        <div class="header__swipe-menu">
+            <!-- <div>Historic</div> -->
+            <div class="section__task--active">Bilan Financier</div>
+            <!-- <div>In process</div> -->
+            
+        </div>
+        <div class="header__filtre">
+            <button>Filtres</button>
+        </div>
+        
+    </header>
+
+    <section class="graph--container">
+
+        <div id="chartContainer" style="height: 500px; width: 80%;"></div>
+
+    </section>
+        
+    
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    
+    <script src="js/graph.js"></script>
+    
+</body>
+
+</html>

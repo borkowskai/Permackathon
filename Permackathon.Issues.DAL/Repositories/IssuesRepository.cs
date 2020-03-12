@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Permackathon.Common.IssuesManager.Entities;
 using Permackathon.Common.IssuesManager.Interfaces.IRepositories;
-using Permackathon.Common.IssuesManager.TransferObjects;
-using Permackathon.Issues.DAL.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,53 +16,55 @@ namespace Permackathon.Issues.DAL.Repositories
         {
             this.issuesContext = issuesContext ?? throw new ArgumentNullException($"{nameof(issuesContext)} in IssueRepository");
         }
-        public IssueTO Add(IssueTO Entity)
+        public IssueEF Add(IssueEF Entity)
         {
             if (Entity is null)
             {
                 throw new ArgumentNullException(nameof(Entity));
             }
 
-            var issue = Entity.ToEF();
-            var result = issuesContext.Issues.Add(issue);
+            var result = issuesContext.Issues.Add(Entity);
             issuesContext.SaveChanges();
-            return result.Entity.ToTransferObject();
+            return result.Entity;
         }
 
-        public IEnumerable<IssueTO> GetAll()
+        public IEnumerable<IssueEF> GetAll()
         {
             return issuesContext.Issues
-            .AsNoTracking()
-            .Select(r => r.ToTransferObject()).ToList();
+                .Include(x => x.Creator)
+                .Include(x => x.Resolver)
+                .Include(x => x.Location)
+                .Include(x=> x.Sector)
+            .Select(r => r).ToList();
         }
 
-        public IssueTO GetById(int Id)
+        public IssueEF GetById(int Id)
         {
             var issue = issuesContext.Issues
                .AsNoTracking()
-               .FirstOrDefault(c => c.IssueId == Id);
+               .FirstOrDefault(c => c.Id == Id);
 
             if (issue is null)
             {
                 throw new KeyNotFoundException($"No effective with ID={Id} was found.");
             }
 
-            return issue.ToTransferObject();
+            return issue;
         }
 
-        public bool Remove(IssueTO entity)
+        public bool Remove(IssueEF entity)
         {
             if (entity is null)
             {
                 throw new ArgumentNullException(nameof(entity));
             }
 
-            return Remove(entity.IssueId);
+            return Remove(entity.Id);
         }
 
         public bool Remove(int Id)
         {
-            var issue = issuesContext.Issues.FirstOrDefault(c => c.IssueId == Id);
+            var issue = issuesContext.Issues.FirstOrDefault(c => c.Id == Id);
 
             if (issue == null)
             {
@@ -73,18 +74,17 @@ namespace Permackathon.Issues.DAL.Repositories
             return removedIssue.State == EntityState.Deleted;
         }
 
-        public IssueTO Update(IssueTO Entity)
+        public IssueEF Update(IssueEF Entity)
         {
             if (Entity is null)
             {
                 throw new ArgumentNullException(nameof(Entity));
             }
-            var result = issuesContext
-                .Issues
-                .Update(Entity.ToEF())
-                .Entity;
-            issuesContext.SaveChanges();
-            return result.ToTransferObject();
+
+            return issuesContext
+              .Issues
+              .Update(Entity)
+              .Entity;
         }
     }
 }

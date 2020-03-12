@@ -1,0 +1,193 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'mr-eaves-modern', sans-serif;
+  overflow: hidden;
+}
+
+body header {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fff;
+}
+
+body header:after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #cfcfcf7a;
+}
+
+body header .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 80%;
+  width: 80%;
+  border: dotted 5px #b9b7b7;
+  border-radius: 15px;
+  opacity: 0.7;
+  z-index: 15;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  position: relative;
+}
+
+body header .container.invisible {
+  display: none;
+}
+
+body header .container .accueil__logo {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+body header .container .accueil__logo a {
+  text-decoration: none;
+  text-align: center;
+  color: #7c5b5b;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+}
+
+body header .container .accueil__logo a span {
+  color: #487748;
+}
+
+body header .container #menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body header .container #menu .titre h1 {
+  margin-top: 0;
+  font-size: 25px;
+  color: #b9b7b7;
+  z-index: 20;
+  text-transform: uppercase;
+  letter-spacing: 2;
+  line-height: 40px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+body header .container #menu form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body header .container #menu form label {
+  color: #b9b7b7;
+  z-index: 25;
+  font-size: 25px;
+  padding: 7px;
+}
+
+body header .container #menu form input {
+  width: 150px;
+  height: 20px;
+  background-color: #fff;
+  z-index: 25;
+  border: solid 2px #b9b7b7;
+  border-radius: 15px;
+}
+
+body header .container #menu form .log {
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  color: #b9b7b7;
+  border: dotted 2px #b9b7b7;
+  background-color: #fff;
+  margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+body header .container #menu form .log:hover {
+  color: #fff;
+  background-color: #b9b7b7;
+  border: dotted 2px #fff;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.144);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.144);
+}
+
+body header .container .menu-2 {
+  text-decoration: none;
+  -webkit-text-decoration-color: none;
+          text-decoration-color: none;
+  color: #b9b7b7;
+  font-size: 30px;
+  padding: 9px 15px;
+  border: solid 1px #b9b7b7;
+  border-radius: 35px;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.144);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.144);
+  background-color: rgba(247, 244, 244, 0.35);
+}
+/*# sourceMappingURL=styles.css.map */
